@@ -1,0 +1,53 @@
+%!Adobe-FontList 1.25
+%Locale:0x416
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NeueHaasGroteskTextPro
+FamilyName:Neue Haas Grotesk Text Pro
+StyleName:Regular
+FullName:Neue Haas Grotesk Text Pro
+MenuName:Neue Haas Grotesk Text Pro
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Designer MD\SynologyDrive\ILIKIA - MARKETING\01 - ILIKIA\03 - EVENTOS E ACOES\26 - APTOS Festival 2026\07 - LAMINA\Elementos\Font\Neue Haas Grotesk Text Pro\31862445252.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:265256
+FileModTime:1690899877
+WeightClass:400
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,Neue Haas Grotesk Text Pro
+NameArray:0,Mac,4,Neue Haas Grotesk Text Pro
+NameArray:0,Win,1,Neue Haas Grotesk Text Pro
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:NeueHaasGroteskTextPro-Bold
+FamilyName:Neue Haas Grotesk Text Pro
+StyleName:Bold
+FullName:Neue Haas Grotesk Text Pro Bold
+MenuName:Neue Haas Grotesk Text Pro
+StyleBits:2
+WritingScript:Roman
+OutlineFileName:C:\Users\Designer MD\SynologyDrive\ILIKIA - MARKETING\01 - ILIKIA\03 - EVENTOS E ACOES\26 - APTOS Festival 2026\07 - LAMINA\Elementos\Font\Neue Haas Grotesk Text Pro\38184073029.ttf
+DataFormat:sfntData
+hasSVG:no
+hasCOLR:no
+VariableFontType:NonVariableFont
+FileLength:291180
+FileModTime:1690899877
+WeightClass:700
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,18,Neue Haas Grotesk Text Pro Bold
+NameArray:0,Mac,4,Neue Haas Grotesk Text Pro Bold
+NameArray:0,Win,1,Neue Haas Grotesk Text Pro
+%EndFont
+
