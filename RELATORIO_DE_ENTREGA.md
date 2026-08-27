@@ -73,10 +73,9 @@ As áreas abaixo já estão preparadas no layout, mas dependem de materiais ou d
 2. Inclusão dos vídeos dos cinco protocolos.
 3. Inclusão das imagens de Antes & Depois dos dois casos.
 4. Inclusão dos vídeos de depoimentos.
-5. Substituição do wordmark tipográfico pelo logo oficial da Ilíkia, quando fornecido.
-6. Confirmação da URL institucional definitiva usada nos botões da APTOS.
-7. Integração do formulário com CRM ou endpoint de captação; hoje o payload é validado e preparado apenas no navegador.
-8. Definição da URL final de produção para configurar `canonical`, `og:url` e URLs sociais absolutas.
+5. Confirmação da URL institucional definitiva usada nos botões da APTOS.
+6. Integração do formulário com CRM ou endpoint de captação; hoje o payload é validado e preparado apenas no navegador.
+7. Definição da URL final de produção para configurar `canonical`, `og:url` e URLs sociais absolutas.
 
 Os placeholders de vídeos, Antes & Depois, depoimentos e prêmio AMWC foram mantidos intencionalmente, conforme orientação do cliente, para substituição quando os materiais forem enviados.
 
@@ -86,7 +85,6 @@ Os placeholders de vídeos, Antes & Depois, depoimentos e prêmio AMWC foram man
 - **Nomenclatura dos fios:** validar com o cliente a divergência entre `LL25/LL50` e `LLTMB/LLNMB`. O texto recebido foi preservado e não foi alterado nesta entrega.
 - **Conteúdos aguardados:** vídeos dos protocolos, imagens de Antes & Depois, vídeos de depoimentos e arte/troféu AMWC.
 - **Link institucional APTOS:** confirmar se `https://www.aptos.com.br` será o destino definitivo.
-- **Logo Ilíkia:** o arquivo oficial não veio nos materiais; foi usado um wordmark tipográfico no rodapé.
 - **SEO em produção:** completar as URLs absolutas de compartilhamento quando o domínio final estiver definido.
 - **Homologação visual:** realizar QA final no endereço de staging/produção, em navegadores e dispositivos reais. A inspeção estática foi concluída; o navegador local automatizado não inicializou neste workspace por causa dos colchetes no nome da pasta `[ILI]`.
 

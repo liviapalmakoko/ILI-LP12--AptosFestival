@@ -1095,8 +1095,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 @media(max-width:860px){.foot__top{grid-template-columns:1fr;gap:var(--sp-8)}}
 .foot__logos{display:flex;flex-wrap:wrap;align-items:center;gap:var(--sp-9)}
 .foot__logos img{height:clamp(28px,3vw,40px);width:auto;opacity:.92}
-.foot__word{font-size:var(--fs-8);font-weight:700;letter-spacing:var(--ls-wider);opacity:.92}
-.foot__word i{font-style:normal;font-weight:300;letter-spacing:var(--ls-body);opacity:.7}
+.foot__logos .foot__ilikia{height:clamp(26px,2.8vw,36px);filter:brightness(0) invert(1);opacity:.88}
 .foot__contact{display:flex;flex-direction:column;gap:var(--sp-6)}
 .foot__block h4{font-size:var(--fs-2);font-weight:500;letter-spacing:var(--ls-wider);text-transform:uppercase;color:var(--cyan-soft);margin-bottom:var(--sp-4)}
 .foot__links{display:flex;flex-wrap:wrap;gap:var(--sp-2) var(--sp-6)}

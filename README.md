@@ -103,7 +103,6 @@ quebraria a composição em vez de padronizá-la.
 - **Antes & Depois** (dobra 5) — substituir o conteúdo de cada `.compare__card`
   pelas quatro imagens quadradas correspondentes aos dois casos.
 - **Vídeos de depoimentos** (dobra 7) — substituir os `.reel` pelos vídeos verticais.
-- **Logo Ilíkia** — não havia arquivo na pasta; está como wordmark tipográfico no rodapé.
 
 ## Formulário
 Valida em cliente (nome, e-mail, telefone com máscara, perfil, cidade/UF, consentimento
