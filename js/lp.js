@@ -10,23 +10,49 @@
   var nav = document.getElementById('nav');
   var burger = document.getElementById('burger');
   var menu = document.getElementById('menu');
+  var menuLinks = Array.prototype.slice.call(menu.querySelectorAll('a'));
+
+  function syncMenuA11y() {
+    var mobile = window.matchMedia('(max-width: 900px)').matches;
+    var open = nav.classList.contains('is-open');
+    var inactive = mobile && !open;
+    menu.inert = inactive;
+    if (inactive) menu.setAttribute('aria-hidden', 'true');
+    else menu.removeAttribute('aria-hidden');
+    menuLinks.forEach(function (link) {
+      if (inactive) link.setAttribute('tabindex', '-1');
+      else link.removeAttribute('tabindex');
+    });
+  }
+
+  function setMenuOpen(open) {
+    nav.classList.toggle('is-open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    syncMenuA11y();
+  }
 
   function onScrollNav() {
     nav.classList.toggle('is-stuck', window.scrollY > 40);
   }
   onScrollNav();
+  syncMenuA11y();
 
   burger.addEventListener('click', function () {
-    var open = nav.classList.toggle('is-open');
-    burger.setAttribute('aria-expanded', String(open));
-    burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    setMenuOpen(!nav.classList.contains('is-open'));
   });
   menu.addEventListener('click', function (e) {
     if (e.target.closest('a')) {
-      nav.classList.remove('is-open');
-      burger.setAttribute('aria-expanded', 'false');
+      setMenuOpen(false);
     }
   });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+      setMenuOpen(false);
+      burger.focus();
+    }
+  });
+  window.addEventListener('resize', syncMenuA11y, { passive: true });
 
   /* ------------------------------------------------------------ REVEALS --- */
   var revealEls = document.querySelectorAll('[data-reveal],[data-stagger]');
@@ -62,6 +88,37 @@
   } else {
     areaItems.forEach(function (i) { i.classList.add('is-lit'); });
   }
+
+  /* ----------------------------------------- NAVEGAÇÃO DOS CINCO SECRETS --- */
+  var secretStrips = Array.prototype.slice.call(document.querySelectorAll('#secrets .strip'));
+  var secretTabs = Array.prototype.slice.call(document.querySelectorAll('#secrets .secret-tab'));
+  function openSecretStrip(index, moveFocus) {
+    secretStrips.forEach(function (item, i) {
+      var active = i === index;
+      item.classList.toggle('is-open', active);
+      item.hidden = !active;
+    });
+    secretTabs.forEach(function (tab, i) {
+      var active = i === index;
+      tab.classList.toggle('is-active', active);
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+    });
+    if (moveFocus && secretTabs[index]) secretTabs[index].focus();
+  }
+  secretTabs.forEach(function (tab, index) {
+    tab.addEventListener('click', function () { openSecretStrip(index, false); });
+    tab.addEventListener('keydown', function (e) {
+      var next = index;
+      if (e.key === 'ArrowRight') next = (index + 1) % secretTabs.length;
+      else if (e.key === 'ArrowLeft') next = (index - 1 + secretTabs.length) % secretTabs.length;
+      else if (e.key === 'Home') next = 0;
+      else if (e.key === 'End') next = secretTabs.length - 1;
+      else return;
+      e.preventDefault(); openSecretStrip(next, true);
+    });
+  });
+  if (secretTabs.length) openSecretStrip(0, false);
 
   /* ----------------------------------------------------------- PARALLAX --- */
   var panels = document.querySelectorAll('.mural__main,.mural__echo');
@@ -131,7 +188,7 @@
   var SECRETS = [
     {
       id: 'body', tab: 't-body', panel: 'p-body',
-      title: 'The Body Secrets — flacidez supraumbilical',
+      title: 'The Body Secrets — Protocolo para flacidez supraumbilical',
       desc: 'Protocolo que combina bioestimulação e sustentação para melhorar firmeza e qualidade dos tecidos na região abdominal superior, com resultado progressivo e natural.',
       video: 'Vídeo do protocolo · The Body Secrets',
       list: [
@@ -143,7 +200,7 @@
     },
     {
       id: 'skin', tab: 't-skin', panel: 'p-skin',
-      title: 'The Skin Secrets — qualidade de pele',
+      title: 'The Skin Secrets — Protocolo para qualidade de pele do rosto',
       desc: 'Terapia de colágeno voltada à textura, viço e densidade da pele do rosto. A resposta é construída ao longo das semanas, acompanhando o próprio ritmo do tecido.',
       video: 'Vídeo do protocolo · The Skin Secrets',
       list: [
@@ -155,7 +212,7 @@
     },
     {
       id: 'eyes', tab: 't-eyes', panel: 'p-eyes',
-      title: 'The Eyes Secrets — abertura do olhar',
+      title: 'The Eyes Secrets — Protocolo para abertura do olhar',
       desc: 'Combina modulação da expressão e reposicionamento para abrir o olhar e suavizar o olhar cansado, preservando o movimento que torna cada rosto reconhecível.',
       video: 'Vídeo do protocolo · The Eyes Secrets',
       list: [
@@ -167,7 +224,7 @@
     },
     {
       id: 'nose', tab: 't-nose', panel: 'p-nose',
-      title: 'The Nose Secrets — refinamento nasal',
+      title: 'The Nose Secrets — Protocolo de refinamento nasal',
       desc: 'Refinamento e harmonização nasal com fios absorvíveis, mantendo a identidade e o equilíbrio do rosto — a harmonia está nos pequenos detalhes.',
       video: 'Vídeo do protocolo · The Nose Secrets',
       list: [
@@ -179,7 +236,7 @@
     },
     {
       id: 'vector', tab: 't-vector', panel: 'p-vector',
-      title: 'The Vector Secrets — moldura facial e estrutura',
+      title: 'The Vector Secrets — Protocolo para moldura facial e estrutura',
       desc: 'Vetorização e sustentação para redefinir a moldura facial. Devolve estrutura ao terço médio e inferior sem alterar a identidade do rosto.',
       video: 'Vídeo do protocolo · The Vector Secrets',
       list: [
@@ -194,6 +251,7 @@
   var tpl = document.getElementById('panel-tpl');
   var panelsHost = document.getElementById('panels');
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var tabsHost = document.querySelector('.tabs');
 
   if (tpl && panelsHost) {
     SECRETS.forEach(function (s) {
@@ -219,55 +277,128 @@
 
     var panelEls = Array.prototype.slice.call(panelsHost.querySelectorAll('.panel'));
 
-    function activate(i) {
-      tabs.forEach(function (t, n) { t.setAttribute('aria-selected', String(n === i)); });
-      panelEls.forEach(function (p, n) { p.classList.toggle('is-active', n === i); });
+    var activeTab = 0;
+    var tabTimer = null;
+    var tabDelay = 6500;
+    var autoTabs = !reduce && tabs.length > 1;
+
+    function stopAutoTabs() {
+      if (tabTimer) window.clearTimeout(tabTimer);
+      tabTimer = null;
+      if (tabsHost) tabsHost.classList.add('is-paused');
+    }
+
+    function startAutoTabs() {
+      if (!autoTabs) return;
+      stopAutoTabs();
+      if (tabsHost) {
+        tabsHost.classList.remove('is-auto', 'is-paused');
+        void tabsHost.offsetWidth;
+        tabsHost.classList.add('is-auto');
+      }
+      tabTimer = window.setTimeout(function () {
+        activate((activeTab + 1) % tabs.length, true);
+      }, tabDelay);
+    }
+
+    function resumeAutoTabs() {
+      var interacting = tabsHost && (tabsHost.matches(':hover') || tabsHost.contains(document.activeElement));
+      if (document.hidden || interacting) stopAutoTabs();
+      else startAutoTabs();
+    }
+
+    function activate(i, fromAuto) {
+      activeTab = i;
+      tabs.forEach(function (t, n) {
+        var active = n === i;
+        t.setAttribute('aria-selected', String(active));
+        t.setAttribute('tabindex', active ? '0' : '-1');
+      });
+      panelEls.forEach(function (p, n) {
+        var active = n === i;
+        p.classList.toggle('is-active', active);
+        p.hidden = !active;
+      });
+      if (fromAuto && tabsHost && tabsHost.scrollWidth > tabsHost.clientWidth) {
+        tabs[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+      if (fromAuto) startAutoTabs();
     }
     tabs.forEach(function (t, i) {
-      t.addEventListener('click', function () { activate(i); });
+      t.addEventListener('click', function () { activate(i); resumeAutoTabs(); });
       t.addEventListener('keydown', function (e) {
-        var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
-        if (!d) return;
+        var next;
+        if (e.key === 'Home') next = 0;
+        else if (e.key === 'End') next = tabs.length - 1;
+        else {
+          var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+          if (!d) return;
+          next = (i + d + tabs.length) % tabs.length;
+        }
         e.preventDefault();
-        var next = (i + d + tabs.length) % tabs.length;
         tabs[next].focus();
         activate(next);
+        resumeAutoTabs();
       });
     });
     activate(0);
-
-    /* ------------------------------------------------- COMPARADOR A/B --- */
-    panelsHost.querySelectorAll('[data-compare]').forEach(function (box) {
-      var dragging = false;
-      function set(clientX) {
-        var r = box.getBoundingClientRect();
-        var pct = Math.min(Math.max((clientX - r.left) / r.width, 0.04), 0.96);
-        box.style.setProperty('--split', (pct * 100).toFixed(1) + '%');
-      }
-      box.addEventListener('pointerdown', function (e) {
-        dragging = true; box.setPointerCapture(e.pointerId); set(e.clientX);
+    if (autoTabs && tabsHost) {
+      tabsHost.classList.add('is-auto');
+      tabsHost.addEventListener('pointerenter', stopAutoTabs);
+      tabsHost.addEventListener('pointerleave', resumeAutoTabs);
+      tabsHost.addEventListener('focusin', stopAutoTabs);
+      tabsHost.addEventListener('focusout', function (e) {
+        if (!tabsHost.contains(e.relatedTarget)) resumeAutoTabs();
       });
-      box.addEventListener('pointermove', function (e) { if (dragging) set(e.clientX); });
-      box.addEventListener('pointerup', function () { dragging = false; });
-      box.addEventListener('pointercancel', function () { dragging = false; });
-    });
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) stopAutoTabs(); else resumeAutoTabs();
+      });
+      startAutoTabs();
+    }
   }
 
   /* ------------------------------------------------------------- REELS --- */
-  var reels = document.querySelector('.reels');
+  var reels = document.querySelector('[data-reel-track]');
   if (reels) {
+    var reelPrev = document.querySelector('[data-reel-prev]');
+    var reelNext = document.querySelector('[data-reel-next]');
     var down = false, startX = 0, startScroll = 0;
+
+    function reelStep() {
+      var card = reels.querySelector('.reel');
+      if (!card) return reels.clientWidth;
+      var gap = parseFloat(window.getComputedStyle(reels).columnGap) || 0;
+      return card.getBoundingClientRect().width + gap;
+    }
+
+    function updateReelControls() {
+      var max = reels.scrollWidth - reels.clientWidth;
+      if (reelPrev) reelPrev.disabled = reels.scrollLeft <= 2;
+      if (reelNext) reelNext.disabled = reels.scrollLeft >= max - 2;
+    }
+
+    if (reelPrev) reelPrev.addEventListener('click', function () {
+      reels.scrollBy({ left: -reelStep(), behavior: reduce ? 'auto' : 'smooth' });
+    });
+    if (reelNext) reelNext.addEventListener('click', function () {
+      reels.scrollBy({ left: reelStep(), behavior: reduce ? 'auto' : 'smooth' });
+    });
+
     reels.addEventListener('pointerdown', function (e) {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
       down = true; startX = e.clientX; startScroll = reels.scrollLeft;
-      reels.style.cursor = 'grabbing';
+      reels.setPointerCapture(e.pointerId);
     });
     reels.addEventListener('pointermove', function (e) {
       if (!down) return;
       reels.scrollLeft = startScroll - (e.clientX - startX);
     });
     ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) {
-      reels.addEventListener(ev, function () { down = false; reels.style.cursor = ''; });
+      reels.addEventListener(ev, function () { down = false; });
     });
+    reels.addEventListener('scroll', updateReelControls, { passive: true });
+    window.addEventListener('resize', updateReelControls, { passive: true });
+    updateReelControls();
   }
 
   /* ---------------------------------------------------------- FORMULÁRIO --- */
@@ -300,7 +431,13 @@
       var pro = perfil.value === 'profissional';
       fieldEspec.classList.toggle('field--hidden', !pro);
       if (inputEspec) inputEspec.required = pro;
-      if (!pro) { fieldEspec.classList.remove('has-error'); if (inputEspec) inputEspec.value = ''; }
+      if (!pro) {
+        fieldEspec.classList.remove('has-error');
+        if (inputEspec) {
+          inputEspec.value = '';
+          inputEspec.setAttribute('aria-invalid', 'false');
+        }
+      }
     });
   }
 
@@ -325,12 +462,14 @@
         if (!field || field.classList.contains('field--hidden')) return;
         var bad = invalid(el);
         field.classList.toggle('has-error', bad);
+        el.setAttribute('aria-invalid', String(bad));
         if (bad) ok = false;
       });
 
       var cb = form.querySelector('input[type="checkbox"]');
       var cbBad = !cb.checked;
       consent.classList.toggle('has-error', cbBad);
+      cb.setAttribute('aria-invalid', String(cbBad));
       if (cbBad) ok = false;
 
       if (!ok) {
@@ -349,6 +488,7 @@
     form.addEventListener('input', function (e) {
       var field = e.target.closest('.field');
       if (field) field.classList.remove('has-error');
+      if (e.target.matches('input,select')) e.target.setAttribute('aria-invalid', 'false');
       if (e.target.type === 'checkbox') consent.classList.remove('has-error');
     });
   }

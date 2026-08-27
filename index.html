@@ -10,10 +10,16 @@
 <meta property="og:description" content="Os Segredos do Colágeno para uma Beleza Brasileira. Cinco protocolos, cinco possibilidades, um mesmo princípio.">
 <meta property="og:image" content="media/hero-capa.jpg">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Brazilian Beauty Secrets">
+<meta name="twitter:description" content="Os Segredos do Colágeno para uma Beleza Brasileira. Cinco protocolos, cinco possibilidades, um mesmo princípio.">
+<meta name="twitter:image" content="media/hero-capa.jpg">
 <link rel="icon" href="media/logos/icon-branco.png">
+<link rel="preload" href="media/hero-capa.jpg" as="image" fetchpriority="high">
 <link rel="preload" href="media/fonts/GothamBold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="media/fonts/GothamBook.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/lp.css">
+<link rel="stylesheet" href="css/lp.css?v=20260827-46">
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
@@ -24,7 +30,7 @@
     <a class="nav__logo" href="#top" aria-label="Brazilian Beauty Secrets">
       <img src="media/logos/bbs-branco.png" alt="Brazilian Beauty Secrets">
     </a>
-    <button class="nav__burger" id="burger" aria-label="Abrir menu" aria-expanded="false">
+    <button class="nav__burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">
       <span></span><span></span>
     </button>
     <nav class="nav__menu" id="menu">
@@ -44,11 +50,11 @@
 
   <!-- Uma única obra: a foto dominante e os ecos em prisma das outras quatro áreas -->
   <div class="mural" aria-hidden="true">
-    <div class="mural__main" data-depth="0.16"><img src="media/hero-capa.jpg" alt=""></div>
-    <div class="mural__echo mural__echo--1" data-depth="0.09"><img src="media/secret-skin.jpg" alt=""></div>
-    <div class="mural__echo mural__echo--2" data-depth="0.22"><img src="media/secret-vector.jpg" alt=""></div>
-    <div class="mural__echo mural__echo--3" data-depth="0.06"><img src="media/skin-close.jpg" alt=""></div>
-    <div class="mural__echo mural__echo--4" data-depth="0.13"><img src="media/secret-body.jpg" alt=""></div>
+    <div class="mural__main" data-depth="0.16"><img src="media/hero-capa.jpg" alt="" fetchpriority="high" decoding="async"></div>
+    <div class="mural__echo mural__echo--1" data-depth="0.09"><img src="media/secret-eyes-v2.jpg" alt="" decoding="async"></div>
+    <div class="mural__echo mural__echo--2" data-depth="0.22"><img src="media/secret-nose-v2.jpg" alt="" decoding="async"></div>
+    <div class="mural__echo mural__echo--3" data-depth="0.06"><img src="media/secret-skin-v2.jpg" alt="" decoding="async"></div>
+    <div class="mural__echo mural__echo--4" data-depth="0.13"><img src="media/secret-body-v2.jpg" alt="" decoding="async"></div>
   </div>
   <div class="hero__wash" aria-hidden="true"></div>
   <div class="hero__wash2" aria-hidden="true"></div>
@@ -92,35 +98,32 @@
 
     <div class="aptos__head">
       <div data-reveal="left">
-        <img class="aptos__logo" src="media/logos/aptosfest-branco.png" alt="APTOS 30 Festival">
-        <p class="eyebrow" style="margin-bottom:1.5rem">A tecnologia por trás</p>
+        <img class="aptos__logo" src="media/logos/aptosfest-branco.png" alt="APTOS 30 Festival" loading="lazy" decoding="async">
         <h2 class="display">O que é APTOS?</h2>
         <p class="lead">Métodos baseados em colágeno para novas possibilidades de cuidado com a beleza e o envelhecimento.</p>
       </div>
-      <div class="aptos__note body-lg" data-reveal="right">
-        <p>APTOS acompanha uma nova forma de compreender o envelhecimento: <strong>preservar a identidade, respeitar a anatomia e valorizar resultados naturais</strong>.</p>
-        <p>Mais do que um produto, uma plataforma terapêutica integrada — sustentação, bioestimulação e regeneração em um mesmo dispositivo.</p>
+      <div class="aptos__note" data-reveal="right">
+        <p class="aptos__manifesto">APTOS acompanha uma nova forma de compreender o envelhecimento: <strong>preservar a identidade, respeitar a anatomia e valorizar resultados naturais</strong></p>
       </div>
     </div>
 
     <!-- Dois pilares + foto editorial -->
     <div class="pillars">
       <figure class="pillars__media" data-reveal="left" data-parallax="0.07">
-        <img src="media/kv-editorial.jpg" alt="Retrato editorial de mulher com pele luminosa e resultado natural">
-        <figcaption class="pillars__caption">Resultado natural &middot; identidade preservada</figcaption>
+        <img src="media/aptos-model-38-v1.jpg" alt="Retrato editorial de mulher brasileira adulta com expressão natural e confiante" loading="lazy" decoding="async">
       </figure>
-      <div data-reveal="right">
+      <div class="aptos__methods" data-reveal="right">
+        <p class="aptos__methods-title">Lifting de Colágeno e Terapia de Colágeno</p>
         <div class="pillar">
           <div class="pillar__top">
             <span class="pillar__idx">01</span>
             <h3 class="pillar__name">Lifting de Colágeno</h3>
           </div>
-          <p class="pillar__desc">Reposicionamento e sustentação tecidual com fios absorvíveis de diferentes geometrias, para lifting e estruturação.</p>
           <div class="chips">
             <span class="chip">APTOS EV</span>
             <span class="chip">APTOS EVS</span>
-            <span class="chip">APTOS LL25</span>
-            <span class="chip">APTOS LL50</span>
+            <span class="chip">APTOS LLTMB</span>
+            <span class="chip">APTOS LLNMB</span>
           </div>
         </div>
         <div class="pillar">
@@ -128,9 +131,8 @@
             <span class="pillar__idx">02</span>
             <h3 class="pillar__name">Terapia de Colágeno</h3>
           </div>
-          <p class="pillar__desc">Bioestimulação progressiva da produção de colágeno, com foco em qualidade de pele e remodelação tecidual.</p>
           <div class="chips">
-            <span class="chip chip--accent">APTOS NANO</span>
+            <span class="chip chip--accent">APTOS NANO EXCELLENCE</span>
           </div>
         </div>
       </div>
@@ -138,31 +140,30 @@
 
     <!-- Caixas -->
     <div class="boxes" data-reveal="fade">
-      <p class="eyebrow boxes__label">A família de produtos dos protocolos</p>
       <div class="boxes__grid" data-stagger>
         <article class="box">
-          <div class="box__img"><img src="media/box-nano.png" alt="Caixa APTOS Nano"></div>
-          <h4 class="box__name">APTOS NANO</h4>
+          <div class="box__img"><img loading="lazy" decoding="async" src="media/box-aptos-ne.png" alt="Caixa oficial APTOS Nano Excellence"></div>
+          <h4 class="box__name">APTOS NANO EXCELLENCE</h4>
           <p class="box__use">Terapia de Colágeno</p>
         </article>
         <article class="box">
-          <div class="box__ph"><span>Mockup pendente</span></div>
+          <div class="box__img"><img loading="lazy" decoding="async" src="media/box-aptos-ev.png" alt="Caixa oficial APTOS EV"></div>
           <h4 class="box__name">APTOS EV</h4>
           <p class="box__use">Lifting de Colágeno</p>
         </article>
         <article class="box">
-          <div class="box__ph"><span>Mockup pendente</span></div>
+          <div class="box__img"><img loading="lazy" decoding="async" src="media/box-aptos-evs.png" alt="Caixa oficial APTOS EVS"></div>
           <h4 class="box__name">APTOS EVS</h4>
           <p class="box__use">Lifting de Colágeno</p>
         </article>
         <article class="box">
-          <div class="box__ph"><span>Mockup pendente</span></div>
-          <h4 class="box__name">APTOS LL25</h4>
+          <div class="box__img"><img loading="lazy" decoding="async" src="media/box-aptos-lltmb.png" alt="Caixa oficial APTOS LLTMB"></div>
+          <h4 class="box__name">APTOS LLTMB</h4>
           <p class="box__use">Lifting de Colágeno</p>
         </article>
         <article class="box">
-          <div class="box__ph"><span>Mockup pendente</span></div>
-          <h4 class="box__name">APTOS LL50</h4>
+          <div class="box__img"><img loading="lazy" decoding="async" src="media/box-aptos-llnmb.png" alt="Caixa oficial APTOS LLNMB"></div>
+          <h4 class="box__name">APTOS LLNMB</h4>
           <p class="box__use">Lifting de Colágeno</p>
         </article>
       </div>
@@ -171,41 +172,31 @@
     <!-- Provas -->
     <div class="proof" data-reveal="fade">
       <article class="proof__cell">
-        <img class="proof__mundo" src="media/mundo-resultados.png" alt="" aria-hidden="true">
-        <svg class="proof__seal" viewBox="0 0 80 80" fill="none" aria-hidden="true">
-          <path d="M24 54C13 47 9 33 14 20" stroke="rgba(255,255,255,.45)" stroke-width="1.3" stroke-linecap="round"/>
-          <path d="M56 54c11-7 15-21 10-34" stroke="rgba(255,255,255,.45)" stroke-width="1.3" stroke-linecap="round"/>
-          <path d="M20 20l-4-5M17 30l-6-3M18 40l-6 0M22 49l-6 3" stroke="rgba(255,255,255,.3)" stroke-width="1.1" stroke-linecap="round"/>
-          <path d="M60 20l4-5M63 30l6-3M62 40l6 0M58 49l6 3" stroke="rgba(255,255,255,.3)" stroke-width="1.1" stroke-linecap="round"/>
-          <circle cx="40" cy="34" r="18" stroke="rgba(255,255,255,.35)" stroke-width="1"/>
-          <text x="40" y="31" text-anchor="middle" font-family="Gotham,sans-serif" font-size="15" font-weight="700" fill="#fff">11×</text>
-          <text x="40" y="43" text-anchor="middle" font-family="Gotham,sans-serif" font-size="6.5" letter-spacing="1.4" fill="rgba(255,255,255,.7)">AMWC</text>
-          <text x="40" y="70" text-anchor="middle" font-family="Gotham,sans-serif" font-size="6" letter-spacing="1.8" fill="rgba(255,255,255,.5)">AWARDS</text>
-        </svg>
+        <img loading="lazy" decoding="async" class="proof__mundo" src="media/mundo-resultados.png" alt="" aria-hidden="true">
         <p class="proof__num grad-text" data-count="11">11<sup>×</sup></p>
         <h3 class="proof__title">Melhor Fio de Sustentação</h3>
-        <p class="proof__desc">Reconhecida consecutivamente pelo AMWC, a APTOS se consolidou como uma das referências globais em tecnologia de fios.</p>
+        <p class="proof__desc">Reconhecida consecutivamente pelo AMWC, a APTOS se consolidou como uma das referências globais em tecnologia de fios</p>
       </article>
       <article class="proof__cell">
-        <img class="proof__mundo" src="media/mundo-ciencia.png" alt="" aria-hidden="true">
+        <img loading="lazy" decoding="async" class="proof__mundo" src="media/mundo-ciencia.png" alt="" aria-hidden="true">
         <p class="proof__num grad-text"><span data-count="30">+30</span></p>
         <h3 class="proof__title">Anos de inovação</h3>
-        <p class="proof__desc">Uma trajetória dedicada ao desenvolvimento de tecnologias e soluções para lifting, reposicionamento e bioestimulação.</p>
+        <p class="proof__desc">Uma trajetória dedicada ao desenvolvimento de tecnologias e soluções para lifting, reposicionamento e bioestimulação</p>
       </article>
       <article class="proof__cell">
-        <img class="proof__mundo" src="media/mundo-parceiros.png" alt="" aria-hidden="true">
+        <img loading="lazy" decoding="async" class="proof__mundo" src="media/mundo-parceiros.png" alt="" aria-hidden="true">
         <p class="proof__num grad-text">Nº1</p>
         <h3 class="proof__title">O Brasil lidera essa história</h3>
-        <p class="proof__desc">Somos protagonistas na história da APTOS, sendo o maior distribuidor global — com produtos e protocolos presentes em mais de 90 países.</p>
+        <p class="proof__desc">Somos protagonistas na história da APTOS, sendo o maior distribuidor global</p>
       </article>
     </div>
 
     <div class="aptos__cta" data-reveal="fade">
-      <a class="btn btn--ghost" href="https://www.aptos.com.br" target="_blank" rel="noopener">
+      <a class="btn aptos__cta-button" href="https://www.aptos.com.br" target="_blank" rel="noopener">
+        <span class="btn__bg"></span>
         Conheça mais sobre APTOS
         <svg class="btn__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M13 8l-4-4M13 8l-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
       </a>
-      <p class="small" style="max-width:34ch">Tecnologia validada, educação médica continuada e presença global.</p>
     </div>
 
   </div>
@@ -216,116 +207,77 @@
   <div class="wrap">
 
     <div class="brasil__head" data-reveal>
+      <img loading="lazy" decoding="async" class="brasil__brand" src="media/logos/aptosfest-branco.png" alt="APTOS Festival">
       <p class="eyebrow">Capítulo 02 &middot; Why Brazil?</p>
       <h2 class="display">Conheça os segredos da <em class="grad-text" style="font-style:normal">Beleza Brasileira</em></h2>
       <p class="lead">Não só protocolos — cinco possibilidades que se complementam.</p>
     </div>
 
     <div class="brasil__stage">
+      <div class="brasil-origin" data-reveal="fade">
 
-      <!-- Mapa integrado aos mundos -->
-      <div class="mapa" data-reveal="left" data-parallax="0.05">
-        <svg viewBox="0 0 460 470" role="img" aria-label="Mapa do Brasil conectado à rede global APTOS">
+      <!-- Contorno cartográfico simplificado a partir do Natural Earth (CC0). -->
+      <div class="mapa">
+        <svg viewBox="0 0 420 420" role="img" aria-label="Mapa do Brasil">
           <defs>
             <linearGradient id="gBrasil" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stop-color="#1F3DFF"/>
               <stop offset="46%" stop-color="#00BDFF"/>
               <stop offset="100%" stop-color="#FF67ED"/>
             </linearGradient>
-            <linearGradient id="gLine" x1="0" y1="1" x2="1" y2="0">
-              <stop offset="0%" stop-color="#8FD9FF" stop-opacity=".15"/>
-              <stop offset="55%" stop-color="#8FD9FF" stop-opacity=".95"/>
-              <stop offset="100%" stop-color="#FF67ED" stop-opacity=".8"/>
-            </linearGradient>
-            <!-- Contorno do Brasil: 35 vértices em coordenadas geográficas convertidas -->
-            <path id="brasilPath" d="M149 19 L237 29 L246 53 L261 83 L301 96 L356 108 L389 123
-              L391 142 L384 167 L356 201 L351 221 L339 274 L322 300 L281 311 L261 326 L261 347
-              L246 364 L214 408 L189 376 L199 341 L203 327 L174 292 L174 261 L151 234 L101 179
-              L77 171 L20 144 L29 122 L57 113 L61 82 L58 60 L84 59 L113 51 L142 26 Z"/>
+            <path id="brasilPath" d="M219 387.4 L216.5 382.2 L220.5 377.8 L215.2 371.6 L186 353.8 L180 354.8 L216.5 324.6 L216.7 317.3 L212.1 312 L207.6 313.7 L210.6 298 L200.4 297.4 L196.8 282.7 L177.2 280.3 L175.1 262.7 L181.2 244.4 L174 236.1 L174.4 227.2 L156.8 226.8 L153.7 204 L118.7 192 L108.7 183.8 L109.3 167.2 L97.3 168.8 L82.4 178.7 L61.5 178.6 L62.1 164.7 L54.6 170.1 L46.5 169.9 L37 164.5 L38.9 160.5 L30 146.7 L38 138.5 L40 126.1 L59.3 116.7 L67.5 117.1 L71.9 88 L66.4 72.7 L73.4 72.2 L73.7 68.6 L68.4 67.7 L68.2 62 L86.1 62.2 L89.1 59 L93.5 67.3 L107.4 70.5 L127.4 57.5 L119.1 54.8 L118.2 42.9 L114.1 40.5 L129.9 43.1 L149.4 36.1 L151.5 30 L158.4 31.7 L157.2 35.7 L162.5 41.4 L158.5 52.4 L167.2 65.6 L182.7 59.8 L195 61 L195.2 54.7 L223 58.2 L237.9 39.1 L245.3 60.3 L250.2 61.8 L250.5 68.1 L243.6 75.6 L246.4 78.4 L262.6 79.8 L263 89 L269.9 83 L296.7 91.9 L301.2 97.3 L299.7 102.4 L310.3 99.5 L341.9 104 L367.1 121.9 L382 124.9 L390 145 L386.3 160.2 L353.8 197.4 L348.4 241.5 L333 278.9 L323.4 288.3 L299.1 291.8 L271.5 305.9 L263.8 315 L260.2 340.6 L219 387.4 Z"/>
           </defs>
 
           <use href="#brasilPath" class="mapa__shape mapa__glow"/>
           <use href="#brasilPath" class="mapa__shape"/>
           <use href="#brasilPath" class="mapa__stroke"/>
-
-          <!-- rede de troca de conhecimento entre os polos brasileiros -->
-          <g class="mapa__net">
-            <line x1="260" y1="306" x2="312" y2="300"/>
-            <line x1="260" y1="306" x2="305" y2="270"/>
-            <line x1="312" y1="300" x2="305" y2="270"/>
-            <line x1="305" y1="270" x2="267" y2="229"/>
-            <line x1="260" y1="306" x2="267" y2="229"/>
-            <line x1="267" y1="229" x2="348" y2="200"/>
-            <line x1="348" y1="200" x2="380" y2="151"/>
-            <line x1="380" y1="151" x2="348" y2="112"/>
-            <line x1="267" y1="229" x2="151" y2="102"/>
-            <line x1="151" y1="102" x2="258" y2="90"/>
-            <line x1="258" y1="90" x2="348" y2="112"/>
-            <line x1="260" y1="306" x2="232" y2="365"/>
-            <line x1="260" y1="306" x2="253" y2="322"/>
-            <line x1="267" y1="229" x2="253" y2="238"/>
-            <line x1="253" y1="238" x2="253" y2="322"/>
-            <line x1="348" y1="200" x2="305" y2="270"/>
+          <g class="mapa__locations" aria-hidden="true">
+            <circle cx="158.1" cy="106.7" r="2.5"/>
+            <circle cx="263.8" cy="91.4" r="2.5"/>
+            <circle cx="269.4" cy="222.9" r="3.5"/>
+            <circle cx="388.7" cy="151.9" r="2.5"/>
+            <circle cx="355.4" cy="197.1" r="2.5"/>
+            <circle cx="305.6" cy="260.8" r="2.5"/>
+            <circle cx="312.6" cy="288.2" r="2.8"/>
+            <circle cx="280.8" cy="294.1" r="3.5"/>
+            <circle cx="238.7" cy="353.5" r="2.5"/>
           </g>
-          <g class="mapa__node">
-            <circle cx="260" cy="306" r="3.6" class="mapa__node--pulse"/>
-            <circle cx="312" cy="300" r="2.6"/>
-            <circle cx="305" cy="270" r="2.4"/>
-            <circle cx="267" cy="229" r="3.4" class="mapa__node--pulse" style="animation-delay:.8s"/>
-            <circle cx="348" cy="200" r="2.6"/>
-            <circle cx="380" cy="151" r="3.2" class="mapa__node--pulse" style="animation-delay:1.6s"/>
-            <circle cx="348" cy="112" r="2.6"/>
-            <circle cx="258" cy="90" r="2.4"/>
-            <circle cx="151" cy="102" r="3" class="mapa__node--pulse" style="animation-delay:2.4s"/>
-            <circle cx="232" cy="365" r="2.6"/>
-            <circle cx="253" cy="322" r="2.2"/>
-            <circle cx="253" cy="238" r="2.2"/>
-          </g>
-
-          <!-- expertise global APTOS -->
-          <g class="mapa__globe" transform="translate(406 52)">
-            <circle r="29" fill="none" stroke="rgba(143,217,255,.65)" stroke-width="1"/>
-            <ellipse rx="29" ry="10" fill="none" stroke="rgba(143,217,255,.45)" stroke-width=".8"/>
-            <ellipse rx="10" ry="29" fill="none" stroke="rgba(143,217,255,.45)" stroke-width=".8"/>
-            <ellipse rx="21" ry="24" fill="none" stroke="rgba(143,217,255,.3)" stroke-width=".8" transform="rotate(34)"/>
-            <ellipse rx="21" ry="24" fill="none" stroke="rgba(143,217,255,.3)" stroke-width=".8" transform="rotate(-34)"/>
-          </g>
-          <circle cx="406" cy="52" r="41" class="mapa__orbit"/>
-
-          <path class="mapa__arc" style="--len:180" d="M380 151 C420 128 428 96 424 74"/>
-          <path class="mapa__arc" style="--len:220;animation-delay:.35s" d="M348 112 C392 100 410 86 416 70"/>
-          <path class="mapa__arc" style="--len:420;animation-delay:.7s" d="M260 306 C368 262 412 158 404 92"/>
-
-          <text class="mapa__label" x="148" y="432">Brasil &#183; Nº1 global</text>
-          <text class="mapa__label" x="406" y="112" text-anchor="middle">90+ países</text>
         </svg>
+        <div class="mapa__facts" aria-label="Alcance global da APTOS">
+          <p><b>Nº1</b><span>Distribuidor global APTOS</span></p>
+          <p><b>90+</b><span>Países com presença APTOS</span></p>
+        </div>
       </div>
 
-      <!-- Dr. Luiz Tonon integrado à composição -->
-      <div class="tonon" data-reveal="right">
-        <div class="body-lg" style="max-width:46ch;margin-bottom:clamp(2rem,4vw,3rem)">
+      <div class="brasil-narrative" data-reveal="right">
+      <article class="brasil-story">
+        <div class="brasil-story__copy">
+          <p class="eyebrow">Origem brasileira &middot; alcance global</p>
           <p>O Brasil reúne uma diversidade de olhares, experiências e formas de compreender a beleza.</p>
-          <p style="margin-top:1rem">Essa riqueza, somada à experiência de profissionais brasileiros e à expertise global da APTOS, deu origem aos <strong style="color:#fff;font-weight:500">Brazilian Beauty Secrets</strong>.</p>
+          <p>Essa riqueza, somada à experiência dos profissionais brasileiros e à expertise global da APTOS, deu origem aos <strong>Brazilian Beauty Secrets</strong>.</p>
         </div>
-        <figure class="tonon__figure">
-          <div class="tonon__quote">
-            <span class="tonon__mark" aria-hidden="true">&ldquo;</span>
-            <blockquote>O Brasil tem uma forma muito particular de compreender a beleza: valoriza a naturalidade, a individualidade e resultados que façam sentido para cada pessoa. É dessa visão que surgem os Brazilian Beauty Secrets.</blockquote>
-          </div>
-          <div class="tonon__person">
-            <div class="tonon__img"><img src="media/dr-tonon.png" alt="Dr. Luiz Tonon"></div>
-            <cite class="tonon__cite">
-              <span class="tonon__name">Dr. Luiz Tonon</span>
-              <span class="tonon__role">Diretor Científico &middot; APTOS Brasil</span>
-            </cite>
-          </div>
-        </figure>
+      </article>
+
+      <figure class="tonon">
+        <div class="tonon__quote">
+          <span class="tonon__mark" aria-hidden="true">&ldquo;</span>
+          <blockquote>O Brasil tem uma forma muito particular de compreender a beleza: valoriza a naturalidade, a individualidade e resultados que façam sentido para cada pessoa. É dessa visão que surgem os Brazilian Beauty Secrets.</blockquote>
+          <cite class="tonon__cite">
+            <span class="tonon__name">Dr. Luiz Tonon</span>
+            <span class="tonon__role">Diretor Científico &middot; APTOS Brasil</span>
+          </cite>
+        </div>
+        <div class="tonon__person">
+          <div class="tonon__img"><img loading="lazy" decoding="async" src="media/dr-tonon.png" alt="Dr. Luiz Tonon"></div>
+        </div>
+      </figure>
+      </div>
       </div>
     </div>
 
     <!-- Frase de destaque -->
     <div class="destaque" data-reveal="fade">
-      <img class="destaque__logo" src="media/logos/bbs-branco.png" alt="Brazilian Beauty Secrets">
+      <img loading="lazy" decoding="async" class="destaque__logo" src="media/logos/bbs-branco.png" alt="Brazilian Beauty Secrets">
       <p class="destaque__eq">
         <b class="grad-text">Ciência Global</b>
         <span class="destaque__plus">+</span>
@@ -342,107 +294,130 @@
 <section class="secrets" id="secrets">
   <div class="wrap section--tight" style="padding-bottom:0">
     <div class="secrets__head" data-reveal>
-      <p class="eyebrow">Capítulo 04 &middot; The Secrets</p>
       <h2 class="display">Cinco protocolos exclusivos</h2>
       <p class="lead">Desenvolvidos por especialistas brasileiros para transformar desejos estéticos em resultados naturais com a tecnologia APTOS.</p>
     </div>
   </div>
 
-  <div class="wrap wrap--wide" style="padding-bottom:clamp(4rem,8vw,7rem)">
+  <div class="wrap wrap--wide">
+    <div class="secrets__nav" role="tablist" aria-label="Escolha um dos cinco protocolos">
+      <button type="button" class="secret-tab is-active" id="secret-tab-body" role="tab" aria-selected="true" aria-controls="secret-body" data-secret-index="0"><b>01</b><span>Body</span></button>
+      <button type="button" class="secret-tab" id="secret-tab-skin" role="tab" aria-selected="false" aria-controls="secret-skin" data-secret-index="1"><b>02</b><span>Skin</span></button>
+      <button type="button" class="secret-tab" id="secret-tab-eyes" role="tab" aria-selected="false" aria-controls="secret-eyes" data-secret-index="2"><b>03</b><span>Eyes</span></button>
+      <button type="button" class="secret-tab" id="secret-tab-nose" role="tab" aria-selected="false" aria-controls="secret-nose" data-secret-index="3"><b>04</b><span>Nose</span></button>
+      <button type="button" class="secret-tab" id="secret-tab-vector" role="tab" aria-selected="false" aria-controls="secret-vector" data-secret-index="4"><b>05</b><span>Vector</span></button>
+    </div>
+  </div>
+
+  <div class="wrap wrap--wide secrets__list" style="margin-bottom:clamp(4rem,8vw,7rem)">
 
     <!-- 01 BODY -->
-    <article class="strip" data-reveal="fade">
+    <article class="strip is-open" id="secret-body" role="tabpanel" aria-labelledby="secret-tab-body">
       <div class="strip__media">
-        <img src="media/secret-body.jpg" alt="Região supraumbilical em contexto lifestyle, transmitindo confiança">
+        <img loading="lazy" decoding="async" src="media/secret-body-v4.jpg" alt="Modelo da campanha com foco na região supraumbilical">
         <span class="strip__tint" aria-hidden="true"></span>
       </div>
       <div class="strip__body">
         <p class="strip__idx"><b>01</b> The Body Secrets</p>
-        <h3 class="strip__name">Flacidez supraumbilical</h3>
+        <h3 class="strip__name">Protocolo para flacidez supraumbilical</h3>
         <p class="strip__phrase">&ldquo;Para vestir aquele top com confiança.&rdquo;</p>
-        <p class="strip__proto">Protocolo que combina bioestimulação e sustentação para melhorar a qualidade e a firmeza dos tecidos da região abdominal superior.</p>
         <div class="strip__foot">
           <div class="strip__prods">
             <span class="prod"><b>2×</b> STIIM</span>
             <span class="prod"><b>2×</b> APTOS Nano</span>
+          </div>
+          <div class="strip__packshots" aria-label="Produtos do protocolo: duas caixas STIIM e duas caixas APTOS Nano">
+            <img loading="lazy" decoding="async" class="packshot--stiim" src="media/box-stiim-v2.png" alt="Caixa STIIM">
+            <img loading="lazy" decoding="async" class="packshot--stiim" src="media/box-stiim-v2.png" alt="">
+            <img loading="lazy" decoding="async" src="media/box-aptos-ne.png" alt="Caixa oficial APTOS Nano Excellence">
+            <img loading="lazy" decoding="async" src="media/box-aptos-ne.png" alt="">
           </div>
         </div>
       </div>
     </article>
 
     <!-- 02 SKIN -->
-    <article class="strip strip--flip" data-reveal="fade">
+    <article class="strip strip--flip" id="secret-skin" role="tabpanel" aria-labelledby="secret-tab-skin" hidden>
       <div class="strip__media">
-        <img src="media/skin-close.jpg" alt="Close de pele luminosa e saudável, com foco na maçã do rosto">
+        <img loading="lazy" decoding="async" src="media/secret-skin-v5.jpg" alt="Modelo da campanha apresentando a maçã do rosto à luz">
         <span class="strip__tint" aria-hidden="true"></span>
       </div>
       <div class="strip__body">
         <p class="strip__idx"><b>02</b> The Skin Secrets</p>
-        <h3 class="strip__name">Qualidade de pele</h3>
+        <h3 class="strip__name">Protocolo para qualidade de pele do rosto</h3>
         <p class="strip__phrase">&ldquo;Porque uma pele bonita começa no colágeno.&rdquo;</p>
-        <p class="strip__proto">Protocolo de terapia de colágeno para textura, viço e densidade da pele do rosto — resultado progressivo e natural.</p>
         <div class="strip__foot">
           <div class="strip__prods">
             <span class="prod"><b>2×</b> APTOS Nano</span>
+          </div>
+          <div class="strip__packshots" aria-label="Produtos do protocolo: duas caixas APTOS Nano">
+            <img loading="lazy" decoding="async" src="media/box-aptos-ne.png" alt="Caixa oficial APTOS Nano Excellence">
+            <img loading="lazy" decoding="async" src="media/box-aptos-ne.png" alt="">
           </div>
         </div>
       </div>
     </article>
 
     <!-- 03 EYES -->
-    <article class="strip" data-reveal="fade">
+    <article class="strip" id="secret-eyes" role="tabpanel" aria-labelledby="secret-tab-eyes" hidden>
       <div class="strip__media">
-        <img src="media/secret-skin.jpg" alt="Close editorial do olhar, com expressão descansada e natural">
+        <img loading="lazy" decoding="async" src="media/secret-eyes-v5.jpg" alt="Modelo da campanha em pose frontal com olhar aberto e descansado">
         <span class="strip__tint" aria-hidden="true"></span>
       </div>
       <div class="strip__body">
         <p class="strip__idx"><b>03</b> The Eyes Secrets</p>
-        <h3 class="strip__name">Abertura do olhar</h3>
+        <h3 class="strip__name">Protocolo para abertura do olhar</h3>
         <p class="strip__phrase">&ldquo;Para que seu olhar fale primeiro.&rdquo;</p>
-        <p class="strip__proto">Protocolo que combina relaxamento muscular e reposicionamento para abrir o olhar, suavizar o olhar cansado e preservar a naturalidade da expressão.</p>
         <div class="strip__foot">
           <div class="strip__prods">
-            <span class="prod">Ciência da Expressão</span>
             <span class="prod"><b>1×</b> APTOS LL25</span>
+          </div>
+          <div class="strip__packshots" aria-label="Produto do protocolo: uma caixa APTOS LL25">
+            <img loading="lazy" decoding="async" src="media/box-aptos-lltmb.png" alt="Caixa oficial APTOS LL25">
           </div>
         </div>
       </div>
     </article>
 
     <!-- 04 NOSE -->
-    <article class="strip strip--flip" data-reveal="fade">
+    <article class="strip strip--flip" id="secret-nose" role="tabpanel" aria-labelledby="secret-tab-nose" hidden>
       <div class="strip__media">
-        <img src="media/secret-vector.jpg" alt="Fotografia de perfil elegante destacando a harmonia nasal">
+        <img loading="lazy" decoding="async" src="media/secret-nose-v5.jpg" alt="Modelo da campanha em perfil destacando a harmonia nasal">
         <span class="strip__tint" aria-hidden="true"></span>
       </div>
       <div class="strip__body">
         <p class="strip__idx"><b>04</b> The Nose Secrets</p>
-        <h3 class="strip__name">Refinamento nasal</h3>
+        <h3 class="strip__name">Protocolo de refinamento nasal</h3>
         <p class="strip__phrase">&ldquo;Porque a harmonia está nos pequenos detalhes.&rdquo;</p>
-        <p class="strip__proto">Protocolo que promove refinamento e harmonização nasal com naturalidade, mantendo a identidade e o equilíbrio do rosto.</p>
         <div class="strip__foot">
           <div class="strip__prods">
             <span class="prod"><b>1×</b> APTOS EV</span>
+          </div>
+          <div class="strip__packshots" aria-label="Produto do protocolo: uma caixa APTOS EV">
+            <img loading="lazy" decoding="async" src="media/box-aptos-ev.png" alt="Caixa oficial APTOS EV">
           </div>
         </div>
       </div>
     </article>
 
     <!-- 05 VECTOR -->
-    <article class="strip" data-reveal="fade">
+    <article class="strip" id="secret-vector" role="tabpanel" aria-labelledby="secret-tab-vector" hidden>
       <div class="strip__media">
-        <img src="media/kv-editorial.jpg" alt="Mulher com expressão confiante e contorno facial naturalmente definido">
+        <img loading="lazy" decoding="async" src="media/secret-vector-v5.jpg" alt="Modelo da campanha evidenciando a linha mandibular">
         <span class="strip__tint" aria-hidden="true"></span>
       </div>
       <div class="strip__body">
         <p class="strip__idx"><b>05</b> The Vector Secrets</p>
-        <h3 class="strip__name">Moldura facial e estrutura</h3>
+        <h3 class="strip__name">Protocolo para moldura facial e estrutura</h3>
         <p class="strip__phrase">&ldquo;Para revelar a melhor versão do seu rosto.&rdquo;</p>
-        <p class="strip__proto">Protocolo de vetorização e sustentação para definir a moldura facial, devolvendo estrutura sem alterar a identidade.</p>
         <div class="strip__foot">
           <div class="strip__prods">
             <span class="prod"><b>1×</b> APTOS EV</span>
             <span class="prod"><b>1×</b> APTOS LL50</span>
+          </div>
+          <div class="strip__packshots" aria-label="Produtos do protocolo: uma caixa APTOS EV e uma caixa APTOS LL50">
+            <img loading="lazy" decoding="async" src="media/box-aptos-ev.png" alt="Caixa oficial APTOS EV">
+            <img loading="lazy" decoding="async" src="media/box-aptos-llnmb.png" alt="Caixa oficial APTOS LL50">
           </div>
         </div>
       </div>
@@ -456,8 +431,11 @@
   <div class="wrap">
 
     <div class="explore__head" data-reveal>
-      <p class="eyebrow">Na prática</p>
-      <h2 class="display display--sm">Conheça as possibilidades por trás de cada Brazilian Beauty Secret e descubra qual desejo de beleza ele traduz</h2>
+      <div class="explore__intro">
+        <p class="eyebrow">Na prática</p>
+        <h2 class="display display--sm">Conheça as possibilidades por trás de cada Brazilian Beauty Secret e descubra qual desejo de beleza ele traduz</h2>
+      </div>
+      <img loading="lazy" decoding="async" class="explore__aptos" src="media/logos/aptosfest-branco.png" alt="APTOS 30 Festival">
     </div>
 
     <div class="tabs" role="tablist" aria-label="Protocolos Brazilian Beauty Secrets" data-reveal="fade">
@@ -472,12 +450,14 @@
     <template id="panel-tpl">
       <div class="panel" role="tabpanel" tabindex="0">
         <div class="panel__grid">
-          <div class="slot slot--video">
-            <span class="slot__hatch" aria-hidden="true"></span>
-            <span class="slot__play" aria-hidden="true"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></span>
-            <div class="slot__meta">
-              <span class="slot__label" data-slot-label>Vídeo do protocolo</span>
-              <span class="slot__tag">Em breve</span>
+          <div class="panel__media">
+            <div class="slot slot--video">
+              <span class="slot__hatch" aria-hidden="true"></span>
+              <span class="slot__play" aria-hidden="true"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></span>
+              <div class="slot__meta">
+                <span class="slot__label" data-slot-label>Vídeo do protocolo</span>
+                <span class="slot__tag">Em breve</span>
+              </div>
             </div>
           </div>
           <div class="panel__aside">
@@ -488,16 +468,33 @@
             <ul class="panel__list" data-panel-list></ul>
           </div>
         </div>
-        <div class="panel__compare">
-          <div class="compare" data-compare>
-            <div class="compare__side compare__side--a"><span class="compare__tag">Antes</span></div>
-            <div class="compare__side compare__side--b"><span class="compare__tag">Depois</span></div>
-            <span class="compare__hint">Área reservada para as imagens comparativas do protocolo &middot; materiais em finalização</span>
-            <span class="compare__handle" aria-hidden="true"><span class="compare__grip"></span></span>
-          </div>
-          <div class="compare__foot">
+        <div class="panel__results" aria-label="Área reservada para resultados de antes e depois">
+          <div class="results__head">
             <span class="slot__label">Antes &amp; Depois</span>
-            <span class="slot__tag">Arraste para comparar</span>
+          </div>
+          <div class="results__grid">
+            <article class="result-pair">
+              <p class="result-pair__label">Caso 01</p>
+              <div class="compare">
+                <figure class="compare__card compare__card--before">
+                  <span class="compare__tag">Antes</span>
+                </figure>
+                <figure class="compare__card compare__card--after">
+                  <span class="compare__tag">Depois</span>
+                </figure>
+              </div>
+            </article>
+            <article class="result-pair">
+              <p class="result-pair__label">Caso 02</p>
+              <div class="compare">
+                <figure class="compare__card compare__card--before">
+                  <span class="compare__tag">Antes</span>
+                </figure>
+                <figure class="compare__card compare__card--after">
+                  <span class="compare__tag">Depois</span>
+                </figure>
+              </div>
+            </article>
           </div>
         </div>
       </div>
@@ -515,11 +512,15 @@
       <h2 class="display">Por trás de cada Secret, existe uma tecnologia</h2>
     </div>
 
-    <div class="mosaic" data-stagger>
+    <div class="mosaic" data-reveal="fade">
+      <picture class="mosaic__visual">
+        <source media="(max-width: 900px)" srcset="media/tech-kv-integrado-mobile-v3.jpg">
+        <img loading="lazy" decoding="async" class="mosaic__kv" src="media/tech-kv-integrado-v3.jpg" alt="Fios absorvíveis bidirecionais e multidirecionais, modelo com expressão natural e estrutura Lattice Pore integrados em uma única composição">
+      </picture>
 
       <!-- APTOS -->
       <article class="mo mo--aptos">
-        <div class="mo__art" aria-hidden="true">
+        <div class="mo__art" aria-hidden="true" hidden>
           <svg viewBox="0 0 640 440" preserveAspectRatio="xMidYMid slice">
             <defs>
               <linearGradient id="gThread" x1="0" y1="0" x2="1" y2="0">
@@ -580,7 +581,7 @@
         </div>
         <p class="mo__brand">APTOS</p>
         <p class="mo__claim">Lifting + Terapia de Colágeno</p>
-        <p class="mo__sub">Fios absorvíveis de PLLA/PCL em geometrias bidirecionais e multidirecionais — sustentação mecânica somada ao estímulo biológico de colágeno.</p>
+        <p class="mo__sub">Fios absorvíveis</p>
         <div class="mo__foot">
           <div class="chips">
             <span class="chip">Fios absorvíveis</span>
@@ -592,20 +593,18 @@
 
       <!-- CIÊNCIA DA EXPRESSÃO -->
       <article class="mo mo--expr">
-        <img src="media/skin-close.jpg" alt="Retrato com expressão natural e pele luminosa">
         <div class="mo__inner">
           <p class="mo__brand">Ciência da Expressão</p>
           <p class="mo__claim">Precisão + Naturalidade</p>
-          <p class="mo__sub">Modulação da expressão com leitura anatômica individualizada — suavizar sem apagar o movimento que torna cada rosto reconhecível.</p>
         </div>
       </article>
 
       <!-- STIIM -->
       <article class="mo mo--stiim">
-        <div>
+        <div class="mo__inner">
           <p class="mo__brand mo__brand--amber">STIIM</p>
           <p class="mo__claim">Bioestimulação + Qualidade dos Tecidos</p>
-          <p class="mo__sub">3ª geração de Hidroxiapatita de Cálcio com estrutura <em style="font-style:normal;color:var(--amber)">Lattice Pore</em> — liberação progressiva e resposta regenerativa sustentada.</p>
+          <p class="mo__sub">3ª geração de Hidroxiapatita de Cálcio</p>
           <div class="mo__foot">
             <div class="chips">
               <span class="chip">Hidroxiapatita de cálcio</span>
@@ -614,7 +613,7 @@
             </div>
           </div>
         </div>
-        <div class="mo__art" aria-hidden="true">
+        <div class="mo__art" aria-hidden="true" hidden>
           <svg viewBox="0 0 300 300">
             <defs>
               <radialGradient id="gAmber">
@@ -650,51 +649,65 @@
 
 <!-- ======================= DOBRA 7 · DEPOIMENTOS ======================= -->
 <section class="section depo" id="depoimentos">
-  <div class="orb orb--spin depo__orb" aria-hidden="true"><img src="media/orb-light.png" alt=""></div>
+  <div class="orb orb--spin depo__orb" aria-hidden="true"><img loading="lazy" decoding="async" src="media/orb-light.png" alt=""></div>
   <div class="wrap">
-    <p class="eyebrow eyebrow--center" data-reveal="fade">Depoimentos</p>
-    <h2 class="display" data-reveal>Quem fez já amou!</h2>
-    <p class="lead depo__sub" data-reveal="fade">Histórias reais de quem viveu os Brazilian Beauty Secrets, contadas por quem passou pelo procedimento.</p>
+    <header class="depo__head">
+      <img loading="lazy" decoding="async" class="depo__mark" src="media/logos/aptos30-branco.png" alt="APTOS 30 Festival" data-reveal="fade">
+      <p class="eyebrow eyebrow--center" data-reveal="fade">Depoimentos</p>
+      <h2 class="display" data-reveal>Quem fez já amou!</h2>
+      <p class="lead depo__sub" data-reveal="fade">Depoimentos dos Brazilian Beauty Secrets. Em breve, histórias reais contadas por quem viveu cada procedimento.</p>
+    </header>
 
-    <div class="reels" data-stagger>
+    <div class="reels" id="reels-track" tabindex="0" role="region" aria-label="Depoimentos em vídeo, em breve" data-reel-track data-stagger>
       <article class="reel">
         <span class="reel__hatch" aria-hidden="true"></span>
-        <span class="reel__play" aria-hidden="true"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></span>
+        <div class="reel__placeholder" aria-hidden="true"><span class="reel__play"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></span><span>Vídeo em breve</span></div>
         <div class="reel__meta"><p class="reel__n">Depoimento 01</p><p class="reel__t">The Body Secrets</p></div>
       </article>
       <article class="reel">
         <span class="reel__hatch" aria-hidden="true"></span>
-        <span class="reel__play" aria-hidden="true"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></span>
+        <div class="reel__placeholder" aria-hidden="true"><span class="reel__play"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></span><span>Vídeo em breve</span></div>
         <div class="reel__meta"><p class="reel__n">Depoimento 02</p><p class="reel__t">The Skin Secrets</p></div>
       </article>
       <article class="reel">
         <span class="reel__hatch" aria-hidden="true"></span>
-        <span class="reel__play" aria-hidden="true"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></span>
+        <div class="reel__placeholder" aria-hidden="true"><span class="reel__play"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></span><span>Vídeo em breve</span></div>
         <div class="reel__meta"><p class="reel__n">Depoimento 03</p><p class="reel__t">The Eyes Secrets</p></div>
       </article>
       <article class="reel">
         <span class="reel__hatch" aria-hidden="true"></span>
-        <span class="reel__play" aria-hidden="true"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></span>
+        <div class="reel__placeholder" aria-hidden="true"><span class="reel__play"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></span><span>Vídeo em breve</span></div>
         <div class="reel__meta"><p class="reel__n">Depoimento 04</p><p class="reel__t">The Nose Secrets</p></div>
       </article>
       <article class="reel">
         <span class="reel__hatch" aria-hidden="true"></span>
-        <span class="reel__play" aria-hidden="true"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></span>
+        <div class="reel__placeholder" aria-hidden="true"><span class="reel__play"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></span><span>Vídeo em breve</span></div>
         <div class="reel__meta"><p class="reel__n">Depoimento 05</p><p class="reel__t">The Vector Secrets</p></div>
       </article>
     </div>
-    <p class="small reels__hint">Vídeos verticais em finalização &middot; serão integrados nesta seção</p>
+    <div class="reels__footer">
+      <p class="small reels__hint">Vídeos verticais em finalização</p>
+      <div class="reels__controls" aria-label="Navegação dos depoimentos">
+        <button class="reels__control" type="button" aria-label="Depoimento anterior" aria-controls="reels-track" data-reel-prev>
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13 8H3M3 8l4-4M3 8l4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </button>
+        <button class="reels__control" type="button" aria-label="Próximo depoimento" aria-controls="reels-track" data-reel-next>
+          <svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M13 8l-4-4M13 8l-4 4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ======================= DOBRA 8 · FECHAMENTO + FORMULÁRIO ======================= -->
 <section class="section final" id="contato">
-  <div class="orb orb--spin final__orb" aria-hidden="true"><img src="media/orb-light.png" alt=""></div>
+  <img class="final__bg" src="media/final-bandeiras.jpg" alt="" loading="lazy" decoding="async" aria-hidden="true">
+  <div class="orb orb--spin final__orb" aria-hidden="true"><img loading="lazy" decoding="async" src="media/orb-light.png" alt=""></div>
   <div class="wrap">
     <div class="final__grid">
 
       <div data-reveal="left">
-        <img class="final__logo" src="media/logos/aptosfest-branco.png" alt="APTOS 30 Festival">
+        <img loading="lazy" decoding="async" class="final__logo" src="media/logos/aptosfest-branco.png" alt="APTOS 30 Festival">
         <div class="final__text">
           <p>Os Brazilian Beauty Secrets ampliam as possibilidades da tecnologia APTOS, reunindo <strong>soluções exclusivas para diferentes objetivos estéticos</strong>.</p>
           <p>Uma abordagem completa que conecta os desejos dos pacientes à experiência dos profissionais, sempre com foco em <strong>resultados naturais</strong>.</p>
@@ -714,52 +727,52 @@
           <form id="lead-form" novalidate>
             <div class="field">
               <label for="f-nome">Nome completo</label>
-              <input id="f-nome" name="nome" type="text" placeholder="Seu nome" autocomplete="name" required>
-              <span class="field__err">Informe seu nome.</span>
+              <input id="f-nome" name="nome" type="text" placeholder="Seu nome" autocomplete="name" required aria-describedby="err-nome">
+              <span class="field__err" id="err-nome" role="alert">Informe seu nome.</span>
             </div>
             <div class="form__row">
               <div class="field">
                 <label for="f-email">E-mail</label>
-                <input id="f-email" name="email" type="email" placeholder="voce@email.com" autocomplete="email" required>
-                <span class="field__err">Informe um e-mail válido.</span>
+                <input id="f-email" name="email" type="email" placeholder="voce@email.com" autocomplete="email" required aria-describedby="err-email">
+                <span class="field__err" id="err-email" role="alert">Informe um e-mail válido.</span>
               </div>
               <div class="field">
                 <label for="f-tel">Telefone / WhatsApp</label>
-                <input id="f-tel" name="telefone" type="tel" placeholder="(00) 00000-0000" autocomplete="tel" inputmode="numeric" required>
-                <span class="field__err">Informe um telefone válido.</span>
+                <input id="f-tel" name="telefone" type="tel" placeholder="(00) 00000-0000" autocomplete="tel" inputmode="numeric" required aria-describedby="err-tel">
+                <span class="field__err" id="err-tel" role="alert">Informe um telefone válido.</span>
               </div>
             </div>
             <div class="field">
               <label for="f-perfil">Você é</label>
-              <select id="f-perfil" name="perfil" required>
+              <select id="f-perfil" name="perfil" required aria-describedby="err-perfil">
                 <option value="">Selecione</option>
                 <option value="profissional">Profissional de saúde</option>
                 <option value="paciente">Paciente / Interessado(a)</option>
               </select>
-              <span class="field__err">Selecione uma opção.</span>
+              <span class="field__err" id="err-perfil" role="alert">Selecione uma opção.</span>
             </div>
             <div class="field field--hidden" id="field-espec">
               <label for="f-espec">Especialidade &amp; registro (CRM/CRO)</label>
-              <input id="f-espec" name="especialidade" type="text" placeholder="Ex.: Dermatologia · CRM 000000/SP">
-              <span class="field__err">Informe sua especialidade e registro.</span>
+              <input id="f-espec" name="especialidade" type="text" placeholder="Ex.: Dermatologia · CRM 000000/SP" aria-describedby="err-espec">
+              <span class="field__err" id="err-espec" role="alert">Informe sua especialidade e registro.</span>
             </div>
             <div class="form__row">
               <div class="field">
                 <label for="f-cidade">Cidade</label>
-                <input id="f-cidade" name="cidade" type="text" placeholder="Sua cidade" autocomplete="address-level2" required>
-                <span class="field__err">Informe sua cidade.</span>
+                <input id="f-cidade" name="cidade" type="text" placeholder="Sua cidade" autocomplete="address-level2" required aria-describedby="err-cidade">
+                <span class="field__err" id="err-cidade" role="alert">Informe sua cidade.</span>
               </div>
               <div class="field">
                 <label for="f-uf">Estado</label>
-                <select id="f-uf" name="uf" required>
+                <select id="f-uf" name="uf" required aria-describedby="err-uf">
                   <option value="">UF</option>
                 </select>
-                <span class="field__err">Selecione o estado.</span>
+                <span class="field__err" id="err-uf" role="alert">Selecione o estado.</span>
               </div>
             </div>
             <label class="consent" id="consent">
-              <input type="checkbox" name="consentimento" required>
-              <span>Autorizo o contato da Ilíkia e o tratamento dos meus dados para envio de informações sobre os protocolos, conforme a Lei Geral de Proteção de Dados.</span>
+              <input type="checkbox" name="consentimento" required aria-describedby="consent-copy">
+              <span id="consent-copy">Autorizo o contato da Ilíkia e o tratamento dos meus dados para envio de informações sobre os protocolos, conforme a <a href="https://ilikia.com/politica-de-privacidade/" target="_blank" rel="noopener privacy-policy">Lei Geral de Proteção de Dados</a>.</span>
             </label>
             <button class="btn form__submit" type="submit">
               <span class="btn__bg"></span>
@@ -786,8 +799,8 @@
     <div class="foot__top">
       <div>
         <div class="foot__logos">
-          <img src="media/logos/bbs-branco.png" alt="Brazilian Beauty Secrets">
-          <img src="media/logos/aptosfest-branco.png" alt="APTOS 30 Festival">
+          <img loading="lazy" decoding="async" src="media/logos/bbs-branco.png" alt="Brazilian Beauty Secrets">
+          <img loading="lazy" decoding="async" src="media/logos/aptosfest-branco.png" alt="APTOS 30 Festival">
           <span class="foot__word">ILÍKIA <i>&amp; Co</i></span>
         </div>
         <p class="small" style="margin-top:1.75rem;max-width:44ch">Eight worlds, one journey. Trinta anos de APTOS, contados pelas mãos e pela ciência dos especialistas brasileiros.</p>
@@ -826,6 +839,6 @@
 </footer>
 </main>
 
-<script src="js/lp.js"></script>
+<script src="js/lp.js?v=20260827-3"></script>
 </body>
 </html>

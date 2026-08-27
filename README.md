@@ -80,27 +80,28 @@ quebraria a composição em vez de padronizá-la.
 ## Dobras
 1. **Hero / manifesto** — as cinco áreas (olhos, nariz, pele, contorno, abdômen) fundidas
    em uma única obra por máscaras de gradiente, sobre o degradê do KV
-2. **O que é APTOS** — dois pilares (Lifting / Terapia de Colágeno), família de produtos,
-   provas (11× AMWC, +30 anos, Brasil Nº1) com os "mundos" como marca d'água
+2. **O que é APTOS** — manifesto, retrato editorial, dois pilares (Lifting / Terapia de
+   Colágeno), linha oficial NE, EV, EVS, LLTMB e LLNMB e provas (11× AMWC, +30 anos,
+   Brasil Nº1) com os "mundos" como marca d'água
 3. **Beleza Brasileira** — mapa do Brasil em SVG com rede de conexão e arcos para o globo
    APTOS; Dr. Luiz Tonon integrado à composição com a citação
 4. **Os cinco Secrets** — cinco faixas horizontais no estilo Take One (Body, Skin, Eyes,
    Nose, Vector), com foto, frase, protocolo e produtos
-5. **Explore cada Secret** — navegação por abas com slot de vídeo e comparador
-   Antes & Depois arrastável
-6. **A tecnologia** — mosaico APTOS (fios e moléculas em SVG) · Ciência da Expressão ·
-   STIIM (estrutura Lattice Pore em SVG)
+5. **Explore cada Secret** — navegação por abas com avanço automático, slot de vídeo
+   e galeria de resultados com dois casos de Antes & Depois
+6. **A tecnologia** — um único KV integrado (desktop + mobile) reúne fios e moléculas
+   APTOS, expressão natural e estrutura Lattice Pore STIIM na mesma cena e iluminação
 7. **Depoimentos** — carrossel de slots verticais 9:16
 8. **Fechamento + formulário** — sobre degradê chapado BB Secrets & Festival
 9. **Rodapé** — logos, redes, site e as 4 referências científicas
 
 ## Pendências de conteúdo (slots já prontos na página)
-- **Mockups dos produtos** APTOS EV, EVS, LL25 e LL50 — o briefing aponta para uma pasta
-  no SharePoint que não estava nos materiais locais. Apenas o APTOS Nano tem imagem.
-  Trocar os placeholders em `index.html` (`.box__ph`) por `<img>` quando chegarem.
+- **Arte oficial do prêmio AMWC** — o catálogo citado no briefing e o troféu em alta
+  resolução não estão nos arquivos recebidos. A versão provisória foi removida; inserir
+  a arte oficial quando o material for disponibilizado pela cliente.
 - **Vídeos dos protocolos** (dobra 5) — substituir `.slot--video` pelo player.
-- **Antes & Depois** (dobra 5) — o comparador já funciona; basta trocar os dois
-  `.compare__side` por `<img>`.
+- **Antes & Depois** (dobra 5) — substituir o conteúdo de cada `.compare__card`
+  pelas quatro imagens quadradas correspondentes aos dois casos.
 - **Vídeos de depoimentos** (dobra 7) — substituir os `.reel` pelos vídeos verticais.
 - **Logo Ilíkia** — não havia arquivo na pasta; está como wordmark tipográfico no rodapé.
 
