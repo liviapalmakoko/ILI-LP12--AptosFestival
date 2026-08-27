@@ -64,6 +64,7 @@ Os arquivos originais pesados são versionados com **Git LFS**. O envio inicial 
 | Varredura por credenciais | Nenhuma credencial encontrada |
 | Servidor local | Resposta HTTP 200 |
 | Repositório no GitHub | Branch `main` publicada e SHA remoto conferido |
+| GitHub Pages | Publicado com HTTPS e resposta HTTP 200 |
 
 ## 6. Pendências de conteúdo
 
@@ -96,7 +97,11 @@ Os placeholders de vídeos, Antes & Depois, depoimentos e prêmio AMWC foram man
 
 O branch `main`, o histórico e todos os objetos Git LFS foram enviados em 27/08/2026. O SHA remoto foi comparado com o local após a publicação.
 
-Publicar o código no repositório não ativa automaticamente uma hospedagem. Se o GitHub Pages for a opção escolhida, ele ainda deve ser configurado em **Settings → Pages**, usando o branch `main` e a pasta `/ (root)`.
+### Landing page publicada
+
+[https://liviapalmakoko.github.io/ILI-LP12--AptosFestival/](https://liviapalmakoko.github.io/ILI-LP12--AptosFestival/)
+
+O GitHub Pages foi ativado a partir do branch `main`, pasta `/ (root)`, com HTTPS obrigatório. O primeiro build foi concluído com status `built` e o endereço público foi validado com resposta HTTP 200.
 
 ## 9. Observações para homologação
 
@@ -107,4 +112,4 @@ Publicar o código no repositório não ativa automaticamente uma hospedagem. Se
 
 ## 10. Critério de conclusão
 
-A implementação da landing page e a publicação do código no GitHub estão concluídas no escopo técnico atual. A entrada em produção permanece condicionada à integração do formulário, à definição da hospedagem, à homologação final e ao recebimento dos conteúdos listados como pendentes.
+A implementação da landing page, a publicação do código e a hospedagem pelo GitHub Pages estão concluídas no escopo técnico atual. A homologação definitiva permanece condicionada à integração do formulário e ao recebimento dos conteúdos listados como pendentes.
