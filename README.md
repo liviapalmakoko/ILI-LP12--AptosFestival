@@ -1,3 +1,19 @@
+> **Revisão atual:** base azul-escura recuperada, com Gotham, fotografias da campanha e globo sutil animado. Vídeos, produtos e formulário mantêm os ajustes aprovados. `css/kv.css` contém apenas os refinamentos mantidos sobre a base de `css/lp.css`.
+
+## Revisão de 11/09/2026
+
+A versão atual unifica os dois blocos de protocolos em uma seção com abas na ordem EYES, NOSE, SKIN, VECTOR e BODY. Os detalhes e as caixas foram preservados. Os vídeos aparecem em players nativos do YouTube em 16:9, com a prévia real; as fotos da campanha aparecem em área ampliada ao lado do vídeo (abaixo no celular), e os produtos acompanham a descrição à esquerda, com quantidade indicada, equilibrando a ficha à direita. Não há troca automática de abas durante a leitura.
+
+O portfólio apresenta as linhas Excellence e Light Lift; referências a Light Lift 25 e 50 estão por extenso. AMWC ganhou a explicação enviada pela cliente e a presença global passou a 100+ países. O CTA da abertura leva ao cadastro.
+
+As fontes foram substituídas pelos arquivos Aptos preenchidos já fornecidos em `assets/4 - FONTES`. Os logos APTOS e Brazilian Beauty Secrets usam apenas o lettering original, sem o símbolo do festival. Ilíkia mantém o logo fornecido com “& Co” ao lado; substituir pelo arquivo oficial completo se houver outra assinatura aprovada.
+
+Abertura com uma única modelo, fundo em toda a tela, luz ambiente com botão de pausa; zoom da fotografia removido enquanto o vídeo real aguarda geração. Tecnologia em três cartões iguais: ilustração de fios criada a partir da referência, modelo SKIN da própria campanha e adaptação azul/ciano/rosa da imagem Lattice-Pore recuperada do projeto [ILI]lp5-stiim. “Neuromodulador” aparece em Ciência da Expressão. Prompts e arquivos em `REVISAO-2026-09-11.md`.
+
+Validado localmente em desktop e celular. Alterações ainda não publicadas no GitHub/domínio. O formulário foi padronizado pelo APTOS (campos, visual e fluxo RD Station), com identificador próprio da campanha. Sucesso/erro foram testados por interceptação local; nenhuma conversão real foi enviada. A aceitação em produção ainda precisa de validação. Os espaços de antes/depois e depoimentos continuam aguardando o material correspondente.
+
+---
+
 # Brazilian Beauty Secrets — Landing Page
 
 LP institucional do projeto **Brazilian Beauty Secrets** (APTOS 30 Festival · Ilíkia),

@@ -1,0 +1,31 @@
+/* Base azul-escura recuperada; Gotham e fotografias do KV mantidas.
+   As cores, superfícies e proporções principais vêm de lp.css. */
+.hero__sub,.aptos .lead,.final__text p{font-weight:400}
+.panel__desc .protocol-product--aptos .protocol-product__art img[src*="lltmb"],
+.panel__desc .protocol-product--aptos .protocol-product__art img[src*="llnmb"]{width:120%;height:120%}
+.technology-card__copy{grid-template-rows:3rem minmax(6rem,auto) auto}
+.hero__orb{z-index:1;width:clamp(440px,46vw,700px);top:2%;right:-10%;opacity:.07}
+.explore{isolation:isolate;overflow:hidden}
+.explore__orb{width:clamp(260px,30vw,440px);top:25px;right:-9%;opacity:.035;z-index:-1}
+.depo__orb{opacity:.045}
+.final__orb{opacity:.055}
+.hero.is-motion-paused .hero__orb img{animation-play-state:paused}
+@media(max-width:600px){
+ .hero__orb{display:block;width:350px;top:85px;right:-145px;opacity:.06}
+ .explore__orb{width:260px;right:-140px;top:40px}
+ .mural__main{top:var(--nav-h)}.mural__main img{height:470px}
+ .technology-card__copy{grid-template-rows:auto auto auto;min-height:220px}
+}
+
+/* Abertura integrada ao fundo escuro, com tipografia do KV. */
+.explore__intro{max-width:76%}
+.explore__intro .eyebrow{min-height:0;margin-bottom:20px;color:var(--cyan-soft)}
+.explore__intro .display{font-size:clamp(1.8rem,3.2vw,3rem);line-height:1.06;letter-spacing:-.045em;text-transform:uppercase;color:var(--paper);max-width:22ch}
+.explore__intro .lead{color:var(--fg-2);font-weight:400;font-size:1rem;line-height:1.6;margin-top:20px}
+.explore__aptos{top:0;right:0;width:130px;opacity:.88}
+.tab__t{font-weight:700;letter-spacing:-.03em}
+@media(max-width:760px){.explore__intro{max-width:100%}.explore__aptos{position:static;width:90px;margin-top:24px}.explore__intro .display{font-size:1.85rem}.explore__intro .eyebrow{font-size:.6rem}}
+
+/* Acentos amostrados dos PDFs de referência; fundos marinho preservados. */
+:root{--blue:#3c8cbb;--cyan:#4fc1e9;--pink:#f03a9c;--grad-festival:linear-gradient(110deg,#3c8cbb,#b9287a);--grad-kv:linear-gradient(115deg,#3c8cbb,#4fc1e9 50%,#f03a9c);--grad-text:linear-gradient(96deg,#a9d9ea,#f6b3d5)}
+#gBrasil stop:first-child{stop-color:#3c8cbb}#gBrasil stop:nth-child(2){stop-color:#4fc1e9}#gBrasil stop:last-child{stop-color:#f03a9c}

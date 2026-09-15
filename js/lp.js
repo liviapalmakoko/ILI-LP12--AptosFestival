@@ -89,36 +89,17 @@
     areaItems.forEach(function (i) { i.classList.add('is-lit'); });
   }
 
-  /* ----------------------------------------- NAVEGAÇÃO DOS CINCO SECRETS --- */
-  var secretStrips = Array.prototype.slice.call(document.querySelectorAll('#secrets .strip'));
-  var secretTabs = Array.prototype.slice.call(document.querySelectorAll('#secrets .secret-tab'));
-  function openSecretStrip(index, moveFocus) {
-    secretStrips.forEach(function (item, i) {
-      var active = i === index;
-      item.classList.toggle('is-open', active);
-      item.hidden = !active;
+  /* Movimento do hero: pausa explícita e respeito à preferência do dispositivo. */
+  var hero = document.getElementById('hero');
+  var motionButton = document.querySelector('[data-motion-toggle]');
+  if (motionButton) {
+    motionButton.hidden = reduce;
+    motionButton.addEventListener('click', function () {
+      var paused = hero.classList.toggle('is-motion-paused');
+      motionButton.setAttribute('aria-pressed', String(paused));
+      motionButton.textContent = paused ? 'Retomar animação' : 'Pausar animação';
     });
-    secretTabs.forEach(function (tab, i) {
-      var active = i === index;
-      tab.classList.toggle('is-active', active);
-      tab.setAttribute('aria-selected', String(active));
-      tab.tabIndex = active ? 0 : -1;
-    });
-    if (moveFocus && secretTabs[index]) secretTabs[index].focus();
   }
-  secretTabs.forEach(function (tab, index) {
-    tab.addEventListener('click', function () { openSecretStrip(index, false); });
-    tab.addEventListener('keydown', function (e) {
-      var next = index;
-      if (e.key === 'ArrowRight') next = (index + 1) % secretTabs.length;
-      else if (e.key === 'ArrowLeft') next = (index - 1 + secretTabs.length) % secretTabs.length;
-      else if (e.key === 'Home') next = 0;
-      else if (e.key === 'End') next = secretTabs.length - 1;
-      else return;
-      e.preventDefault(); openSecretStrip(next, true);
-    });
-  });
-  if (secretTabs.length) openSecretStrip(0, false);
 
   /* ----------------------------------------------------------- PARALLAX --- */
   var panels = document.querySelectorAll('.mural__main,.mural__echo');
@@ -129,14 +110,6 @@
     var y = window.scrollY;
     var vh = window.innerHeight;
 
-    // mural do hero: painéis com profundidades diferentes
-    if (y < vh * 1.2) {
-      panels.forEach(function (p) {
-        var d = parseFloat(p.getAttribute('data-depth')) || 0.1;
-        var img = p.firstElementChild;
-        if (img) img.style.transform = 'scale(1.1) translate3d(0,' + (y * d).toFixed(2) + 'px,0)';
-      });
-    }
 
     parallaxEls.forEach(function (el) {
       var r = el.getBoundingClientRect();
@@ -188,9 +161,9 @@
   var SECRETS = [
     {
       id: 'body', tab: 't-body', panel: 'p-body',
-      title: 'The Body Secrets — Protocolo para flacidez supraumbilical',
+      title: 'BODY — Protocolo para flacidez supraumbilical',
       desc: 'Protocolo que combina bioestimulação e sustentação para melhorar firmeza e qualidade dos tecidos na região abdominal superior, com resultado progressivo e natural.',
-      video: 'Vídeo do protocolo · The Body Secrets',
+      video: 'Vídeo do protocolo · BODY',
       list: [
         ['Desejo', 'Vestir aquele top com confiança'],
         ['Área', 'Região supraumbilical'],
@@ -200,9 +173,9 @@
     },
     {
       id: 'skin', tab: 't-skin', panel: 'p-skin',
-      title: 'The Skin Secrets — Protocolo para qualidade de pele do rosto',
+      title: 'SKIN — Protocolo para qualidade de pele do rosto',
       desc: 'Terapia de colágeno voltada à textura, viço e densidade da pele do rosto. A resposta é construída ao longo das semanas, acompanhando o próprio ritmo do tecido.',
-      video: 'Vídeo do protocolo · The Skin Secrets',
+      video: 'Vídeo do protocolo · SKIN',
       list: [
         ['Desejo', 'Uma pele bonita que começa no colágeno'],
         ['Área', 'Pele do rosto'],
@@ -212,42 +185,47 @@
     },
     {
       id: 'eyes', tab: 't-eyes', panel: 'p-eyes',
-      title: 'The Eyes Secrets — Protocolo para abertura do olhar',
+      title: 'EYES — Protocolo para abertura do olhar',
       desc: 'Combina modulação da expressão e reposicionamento para abrir o olhar e suavizar o olhar cansado, preservando o movimento que torna cada rosto reconhecível.',
-      video: 'Vídeo do protocolo · The Eyes Secrets',
+      video: 'Vídeo do protocolo · EYES',
       list: [
         ['Desejo', 'Que seu olhar fale primeiro'],
         ['Área', 'Terço superior · região periorbital'],
-        ['Tecnologia', 'Ciência da Expressão + 1× APTOS LL25'],
+        ['Tecnologia', 'Ciência da Expressão + 1× APTOS Light Lift 25'],
         ['Resultado', 'Olhar aberto e descansado']
       ]
     },
     {
       id: 'nose', tab: 't-nose', panel: 'p-nose',
-      title: 'The Nose Secrets — Protocolo de refinamento nasal',
+      title: 'NOSE — Protocolo de refinamento nasal',
       desc: 'Refinamento e harmonização nasal com fios absorvíveis, mantendo a identidade e o equilíbrio do rosto — a harmonia está nos pequenos detalhes.',
-      video: 'Vídeo do protocolo · The Nose Secrets',
+      video: 'Vídeo do protocolo · NOSE',
       list: [
         ['Desejo', 'Harmonia nos pequenos detalhes'],
         ['Área', 'Dorso e ponta nasal'],
-        ['Tecnologia', '1× APTOS EV'],
+        ['Tecnologia', '1× APTOS Excellence Visage'],
         ['Resultado', 'Refinamento com identidade preservada']
       ]
     },
     {
       id: 'vector', tab: 't-vector', panel: 'p-vector',
-      title: 'The Vector Secrets — Protocolo para moldura facial e estrutura',
+      title: 'VECTOR — Protocolo para moldura facial e estrutura',
       desc: 'Vetorização e sustentação para redefinir a moldura facial. Devolve estrutura ao terço médio e inferior sem alterar a identidade do rosto.',
-      video: 'Vídeo do protocolo · The Vector Secrets',
+      video: 'Vídeo do protocolo · VECTOR',
       list: [
         ['Desejo', 'Revelar a melhor versão do seu rosto'],
         ['Área', 'Terço médio e inferior · contorno'],
-        ['Tecnologia', '1× APTOS EV + 1× APTOS LL50'],
+        ['Tecnologia', '1× APTOS Excellence Visage + 1× APTOS Light Lift 50'],
         ['Resultado', 'Moldura definida naturalmente']
       ]
     }
   ];
 
+  var secretOrder = ['eyes', 'nose', 'skin', 'vector', 'body'];
+  SECRETS.sort(function(a,b) { return secretOrder.indexOf(a.id) - secretOrder.indexOf(b.id); });
+  var protocolVideos = {eyes:'9UXW6M71_a8',body:'P2K4zax1cck',vector:'1rVVNRCxh3E',skin:'ivXdqfB0-6M',nose:'SMhLPf0ymVA'};
+  var protocolPhotos = {eyes:'secret-eyes-v5.jpg',nose:'secret-nose-v5.jpg',skin:'secret-skin-v5.jpg',vector:'secret-vector-v5.jpg',body:'secret-body-v4.jpg'};
+  var protocolProducts = {"body": [["stiim", "STIIM", "box-stiim-horizontal-v3.png", 2], ["aptos", "APTOS Nano Excellence", "box-aptos-ne.png", 2]], "skin": [["aptos", "APTOS Nano Excellence", "box-aptos-ne.png", 2]], "eyes": [["aptos", "Light Lift 25", "box-aptos-lltmb.png", 1]], "nose": [["aptos", "Excellence Visage", "box-aptos-ev.png", 1]], "vector": [["aptos", "Excellence Visage", "box-aptos-ev.png", 1], ["aptos", "Light Lift 50", "box-aptos-llnmb.png", 1]]};
   var tpl = document.getElementById('panel-tpl');
   var panelsHost = document.getElementById('panels');
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
@@ -258,8 +236,32 @@
       var node = tpl.content.cloneNode(true);
       var panel = node.querySelector('.panel');
       panel.id = s.panel;
+      var video = node.querySelector('[data-protocol-video]');
+      video.dataset.src = 'https://www.youtube-nocookie.com/embed/' + protocolVideos[s.id] + '?rel=0';
+      video.title = 'Assistir ao protocolo ' + s.id.toUpperCase();
+      node.querySelector('[data-video-link]').href = 'https://www.youtube.com/watch?v=' + protocolVideos[s.id];
+      var photo = node.querySelector('[data-protocol-image]');
+      photo.src = 'media/' + protocolPhotos[s.id];
+      photo.alt = 'Imagem ilustrativa do protocolo ' + s.id.toUpperCase();
+      var productsHost = node.querySelector('[data-panel-products]');
+      protocolProducts[s.id].forEach(function (product) {
+        var item = document.createElement('figure');
+        item.className = 'protocol-product protocol-product--' + product[0];
+        var art = document.createElement('div');
+        art.className = 'protocol-product__art';
+        var image = document.createElement('img');
+        image.src = 'media/' + product[2];
+        image.alt = 'Embalagem ' + product[1];
+        image.loading = 'lazy';
+        art.appendChild(image);
+        var caption = document.createElement('figcaption');
+        caption.textContent = product[3] + '× ' + product[1];
+        item.appendChild(art);
+        item.appendChild(caption);
+        productsHost.appendChild(item);
+      });
       panel.setAttribute('aria-labelledby', s.tab);
-      node.querySelector('[data-slot-label]').textContent = s.video;
+      node.querySelector('[data-slot-label]').textContent = 'Assistir ao protocolo · ' + s.id.toUpperCase();
       node.querySelector('[data-panel-title]').textContent = s.title;
       node.querySelector('[data-panel-desc]').textContent = s.desc;
       var ul = node.querySelector('[data-panel-list]');
@@ -269,6 +271,9 @@
         b.textContent = row[0];
         var span = document.createElement('span');
         span.textContent = row[1];
+        if (row[0] === 'Tecnologia') {
+          node.querySelector('.panel__desc').appendChild(productsHost.parentElement);
+        }
         li.appendChild(b); li.appendChild(span);
         ul.appendChild(li);
       });
@@ -280,7 +285,7 @@
     var activeTab = 0;
     var tabTimer = null;
     var tabDelay = 6500;
-    var autoTabs = !reduce && tabs.length > 1;
+    var autoTabs = false; // A escolha permanece estável durante a leitura ou o vídeo.
 
     function stopAutoTabs() {
       if (tabTimer) window.clearTimeout(tabTimer);
@@ -318,6 +323,11 @@
         var active = n === i;
         p.classList.toggle('is-active', active);
         p.hidden = !active;
+        var video = p.querySelector('[data-protocol-video]');
+        if (video) {
+          if (active && !video.hasAttribute('src')) video.src = video.dataset.src;
+          else if (!active) video.removeAttribute('src');
+        }
       });
       if (fromAuto && tabsHost && tabsHost.scrollWidth > tabsHost.clientWidth) {
         tabs[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
@@ -402,16 +412,6 @@
   }
 
   /* ---------------------------------------------------------- FORMULÁRIO --- */
-  var UFS = ['AC','AL','AP','AM','BA','CE','DF','ES','GO','MA','MT','MS','MG','PA','PB','PR','PE','PI','RJ','RN','RS','RO','RR','SC','SP','SE','TO'];
-  var ufSel = document.getElementById('f-uf');
-  if (ufSel) {
-    UFS.forEach(function (uf) {
-      var o = document.createElement('option');
-      o.value = uf; o.textContent = uf;
-      ufSel.appendChild(o);
-    });
-  }
-
   var tel = document.getElementById('f-tel');
   if (tel) {
     tel.addEventListener('input', function () {
@@ -423,21 +423,15 @@
     });
   }
 
-  var perfil = document.getElementById('f-perfil');
-  var fieldEspec = document.getElementById('field-espec');
-  var inputEspec = document.getElementById('f-espec');
-  if (perfil && fieldEspec) {
-    perfil.addEventListener('change', function () {
-      var pro = perfil.value === 'profissional';
-      fieldEspec.classList.toggle('field--hidden', !pro);
-      if (inputEspec) inputEspec.required = pro;
-      if (!pro) {
-        fieldEspec.classList.remove('has-error');
-        if (inputEspec) {
-          inputEspec.value = '';
-          inputEspec.setAttribute('aria-invalid', 'false');
-        }
-      }
+  var doc = document.getElementById('f-doc');
+  if (doc) {
+    doc.inputMode = 'numeric';
+    doc.maxLength = 18;
+    doc.addEventListener('input', function () {
+      var digits = doc.value.replace(/\D/g, '').slice(0, 14);
+      doc.value = digits.length <= 11
+        ? digits.replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d{1,2})$/, '$1-$2')
+        : digits.replace(/^(\d{2})(\d)/, '$1.$2').replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3').replace(/(\d{3})(\d)/, '$1/$2').replace(/(\d{4})(\d{1,2})$/, '$1-$2');
     });
   }
 
@@ -446,13 +440,14 @@
   var consent = document.getElementById('consent');
 
   function invalid(el) {
+    if (el.id === 'f-doc') { var n = el.value.replace(/\D/g, ''); return ![11,14].includes(n.length) || /^(\d)\1+$/.test(n); }
     if (el.type === 'email') return !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(el.value.trim());
     if (el.type === 'tel') return el.value.replace(/\D/g, '').length < 10;
     return !el.value.trim();
   }
 
   if (form) {
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
       var ok = true;
 
@@ -478,11 +473,37 @@
         return;
       }
 
-      /* Integração de envio (CRM / e-mail) entra aqui. */
-      var payload = Object.fromEntries(new FormData(form).entries());
-      console.info('[BBS] lead pronto para envio:', payload);
-      formBox.classList.add('is-sent');
-      formBox.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      var button = form.querySelector('button[type="submit"]');
+      var error = document.getElementById('form-error');
+      var originalLabel = button.innerHTML;
+      button.disabled = true;
+      button.textContent = 'Enviando...';
+      error.hidden = true;
+      var data = new FormData(form);
+      var payload = {
+        token_rdstation: "61d98fcb65995325460b68f98e0995fe",
+        conversion_identifier: 'brazilian-beauty-secrets',
+        name: data.get('name'), email: data.get('email'), mobile_phone: data.get('mobile_phone'),
+        cf_cpf_cnpj: data.get('cf_cpf_cnpj'), cf_especialidade: data.get('cf_especialidade'),
+        cf_numero_registro: data.get('cf_numero_registro'), city: data.get('city')
+      };
+      var query = new URLSearchParams(window.location.search);
+      ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(function(key) {
+        if (query.get(key)) payload[key] = query.get(key);
+      });
+      try {
+        var response = await fetch('https://www.rdstation.com.br/api/1.3/conversions', {
+          method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+        });
+        if (!response.ok) throw new Error('Falha no envio');
+        formBox.classList.add('is-sent');
+        formBox.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      } catch (_) {
+        error.hidden = false;
+      } finally {
+        button.disabled = false;
+        button.innerHTML = originalLabel;
+      }
     });
 
     form.addEventListener('input', function (e) {
