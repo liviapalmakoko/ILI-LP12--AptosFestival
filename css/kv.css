@@ -132,3 +132,89 @@ img[src*="wordmark.svg"],.foot__logos .foot__ilikia{filter:brightness(0) saturat
 
 /* Antes e depois: preencher os quadros sem barras ou distorção. */
 .result-frame img{object-fit:cover;object-position:50% 50%}
+
+/* Revisão responsiva: navegação, enquadramento e ritmo em telas menores. */
+section[id],footer[id]{scroll-margin-top:88px}
+.foot__ilikia-lockup{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.foot__ilikia-lockup .foot__co{margin:0}
+@media(max-width:900px){
+ .nav,.nav.is-stuck{height:64px}
+ .nav__logo img,.nav.is-stuck .nav__logo img{height:30px;opacity:1;transform:none}
+ .nav__menu{position:absolute;inset:100% 0 auto;max-height:calc(100dvh - 64px);overflow-y:auto;overscroll-behavior:contain}
+ .nav__link{min-height:44px}
+ .hero__content{padding-top:350px;padding-bottom:104px}
+ .hero__text{max-width:100%}
+ .hero h1{font-size:clamp(2.35rem,5.8vw,3.5rem);max-width:22ch}
+ .hero__sub{max-width:52ch}
+ .mural__main{top:64px}
+ .mural__main img{height:440px;object-position:85% top}
+ .mural::after{background:linear-gradient(0deg,#dceef5 calc(100% - 440px),rgba(220,238,245,.85) calc(100% - 340px),transparent calc(100% - 180px))}
+ .hero__logo{width:140px;margin-bottom:20px}
+ .hero__eyebrow{font-size:.6rem;line-height:1.6}
+ .hero__motion{top:80px;bottom:auto;right:var(--pad)}
+ .scroll-cue{display:none}
+ .pillars__media{margin-inline:auto}
+}
+@media(max-width:600px){
+ .hero__content{padding-top:330px;padding-bottom:94px}
+ .hero h1{font-size:clamp(2.1rem,9vw,2.65rem)}
+ .hero__sub{font-size:1rem}
+ .areas{overflow:visible;padding-inline:12px;gap:0}
+ .areas__item{flex:1 1 0;min-width:0;white-space:normal;font-size:.55rem;letter-spacing:.06em;line-height:1.4;padding:14px 4px;display:flex;align-items:center;justify-content:center}
+ .tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));overflow:visible}
+ .tab{min-width:0;min-height:64px;padding:12px 2px;text-align:center}
+ .tab__t{font-size:clamp(.68rem,3vw,.85rem);letter-spacing:-.03em}
+ .tab__n{font-size:.55rem;margin-bottom:6px}
+ .technology-card{grid-template-rows:260px auto}
+ .technology-card__copy{grid-template-rows:auto auto auto;min-height:0;gap:16px;padding:24px}
+ .technology-card__copy h3{font-size:1.45rem}
+ .technology-card__copy .mo__brand{font-size:.8rem}
+ .final .form__row{gap:0}
+ .foot__logos{gap:20px;justify-content:space-between}
+ .foot__logos>img{height:26px}
+ .foot__logos .foot__ilikia{height:24px}
+ .foot__co{font-size:.95rem}
+ .destaque__text{font-size:1.25rem}
+}
+
+/* Dois depoimentos gerais, sem associação artificial aos protocolos. */
+/* Dois relatos em uma composição editorial única. */
+.testimonials-editorial{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.25fr);gap:clamp(36px,7vw,100px);align-items:center;text-align:left}
+.depo .depo__head{margin:0;max-width:none}
+.depo .depo__mark{margin:0 0 32px;width:88px}
+.depo .eyebrow{justify-content:flex-start;margin-bottom:20px}
+.depo h2{font-size:clamp(30px,3.25vw,48px);line-height:1.12;letter-spacing:-.035em;margin-bottom:24px}
+.depo .depo__sub{font-size:1rem;line-height:1.75;margin:0;max-width:34ch}
+.testimonials-media{min-width:0;width:100%;max-width:580px;justify-self:end}
+.testimonials-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;text-align:left}
+.testimonial-card{min-width:0;background:transparent}
+.testimonial-card video{display:block;width:100%;aspect-ratio:9/16;object-fit:contain;background:#000}
+.testimonial-card__caption{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:16px 0}
+.testimonial-card__caption h3{font-size:.8rem;font-weight:700;line-height:1.4;margin:0}
+.testimonial-card__caption span{font-size:.72rem;color:var(--fg-2)}
+.testimonial-tabs{display:none}
+@media(max-width:900px){
+.testimonials-editorial{grid-template-columns:1fr;max-width:700px;margin:auto;gap:28px}
+.testimonials-media{justify-self:center}
+.depo .depo__sub{max-width:48ch}.depo .depo__mark{margin-bottom:24px}
+}
+@media(max-width:600px){
+.testimonials-editorial{gap:24px}
+.depo h2{font-size:30px}.depo .depo__sub{font-size:.9rem;line-height:1.65}
+.testimonials-grid{display:block;max-width:320px;margin:auto}
+.testimonial-card[hidden]{display:none}
+.testimonial-tabs{display:flex;gap:0;border-bottom:1px solid var(--line-2);margin:0 auto 20px;max-width:320px}
+.testimonial-tabs button{flex:1;border:0;border-bottom:2px solid transparent;padding:14px 8px;background:transparent;color:var(--fg);font:inherit;font-size:.85rem;cursor:pointer}
+.testimonial-tabs button span{font-size:.7rem;opacity:.7;margin-left:6px}
+.testimonial-tabs button[aria-selected="true"]{border-bottom-color:#B9287A;color:#B9287A;font-weight:700}
+.testimonial-tabs button:focus-visible{outline:2px solid #B9287A;outline-offset:2px}
+.testimonial-card__caption{padding:14px 0}.testimonial-card__caption h3{font-size:.9rem}
+}
+
+.testimonial-player{position:relative;overflow:hidden;border-radius:10px}
+.testimonial-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:flex-end;flex-direction:column;gap:12px;padding:28px 12px;border:0;color:white;background:linear-gradient(transparent 55%,rgba(10,38,51,.68));cursor:pointer;font:inherit}
+.testimonial-play[hidden]{display:none}
+.testimonial-play span{display:grid;place-items:center;width:52px;height:52px;border:1px solid rgba(255,255,255,.8);border-radius:50%;background:rgba(255,255,255,.2);backdrop-filter:blur(8px);font-size:18px;padding-left:3px;transition:background .2s}
+.testimonial-play strong{font-size:.8rem;font-weight:500}
+.testimonial-play:hover span{background:rgba(185,40,122,.8)}
+.testimonial-play:focus-visible{outline:3px solid #B9287A;outline-offset:-4px}

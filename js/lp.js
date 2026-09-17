@@ -260,7 +260,7 @@
         item.appendChild(caption);
         productsHost.appendChild(item);
       });
-      var resultFiles = {nose: 'nose.jpeg', skin: 'skin.png', vector: 'vector.jpeg', body: 'body.png'};
+      var resultFiles = {eyes: 'eyes.png', nose: 'nose.jpeg', skin: 'skin.png', vector: 'vector.jpeg', body: 'body.png'};
       var results = node.querySelector('.panel__results');
       if (resultFiles[s.id]) {
         results.setAttribute('aria-label', 'Antes e depois do protocolo ' + s.id.toUpperCase());
@@ -277,7 +277,7 @@
           ? 'Registro após 30 dias. Caso clínico: 46 anos, histórico de gestação gemelar.'
           : 'Antes e depois do tratamento.';
         summary.appendChild(caption);
-        if (s.id === 'skin' || s.id === 'vector') {
+        if (s.id === 'eyes' || s.id === 'skin' || s.id === 'vector') {
           var credit = document.createElement('p');
           credit.className = 'result-summary__credit';
           credit.textContent = 'Registro de imagem: QuantifiCare.';
@@ -428,49 +428,56 @@
     }
   }
 
-  /* ------------------------------------------------------------- REELS --- */
-  var reels = document.querySelector('[data-reel-track]');
-  if (reels) {
-    var reelPrev = document.querySelector('[data-reel-prev]');
-    var reelNext = document.querySelector('[data-reel-next]');
-    var down = false, startX = 0, startScroll = 0;
+  /* Um depoimento por vez, sem reprodução automática. */
+  var testimonialVideos = Array.prototype.slice.call(document.querySelectorAll('[data-testimonial-video]'));
+  testimonialVideos.forEach(function (video) {
+    var playButton = video.parentElement.querySelector('.testimonial-play');
+    video.controls = false;
+    playButton.hidden = false;
+    playButton.addEventListener('click', function () {
+      video.controls = true;
+      playButton.hidden = true;
+      video.play().catch(function () { playButton.hidden = false; video.controls = false; });
+    });
+    video.addEventListener('play', function () {
+      video.controls = true;
+      playButton.hidden = true;
+      testimonialVideos.forEach(function (other) { if (other !== video) other.pause(); });
+    });
+  });
 
-    function reelStep() {
-      var card = reels.querySelector('.reel');
-      if (!card) return reels.clientWidth;
-      var gap = parseFloat(window.getComputedStyle(reels).columnGap) || 0;
-      return card.getBoundingClientRect().width + gap;
-    }
-
-    function updateReelControls() {
-      var max = reels.scrollWidth - reels.clientWidth;
-      if (reelPrev) reelPrev.disabled = reels.scrollLeft <= 2;
-      if (reelNext) reelNext.disabled = reels.scrollLeft >= max - 2;
-    }
-
-    if (reelPrev) reelPrev.addEventListener('click', function () {
-      reels.scrollBy({ left: -reelStep(), behavior: reduce ? 'auto' : 'smooth' });
+  var testimonialTabs = Array.prototype.slice.call(document.querySelectorAll('.testimonial-tabs [role="tab"]'));
+  var testimonialMobile = window.matchMedia('(max-width:600px)');
+  var activeTestimonial = 0;
+  function updateTestimonialLayout() {
+    testimonialTabs.forEach(function (tab, index) {
+      var panel = document.getElementById(tab.getAttribute('aria-controls'));
+      var selected = index === activeTestimonial;
+      tab.setAttribute('aria-selected', String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+      panel.hidden = testimonialMobile.matches && !selected;
+      if (testimonialMobile.matches) {
+        panel.setAttribute('role', 'tabpanel');
+        panel.setAttribute('aria-labelledby', tab.id);
+      } else {
+        panel.removeAttribute('role');
+        panel.removeAttribute('aria-labelledby');
+      }
+      if (panel.hidden) panel.querySelector('video').pause();
     });
-    if (reelNext) reelNext.addEventListener('click', function () {
-      reels.scrollBy({ left: reelStep(), behavior: reduce ? 'auto' : 'smooth' });
-    });
-
-    reels.addEventListener('pointerdown', function (e) {
-      if (e.pointerType === 'mouse' && e.button !== 0) return;
-      down = true; startX = e.clientX; startScroll = reels.scrollLeft;
-      reels.setPointerCapture(e.pointerId);
-    });
-    reels.addEventListener('pointermove', function (e) {
-      if (!down) return;
-      reels.scrollLeft = startScroll - (e.clientX - startX);
-    });
-    ['pointerup', 'pointerleave', 'pointercancel'].forEach(function (ev) {
-      reels.addEventListener(ev, function () { down = false; });
-    });
-    reels.addEventListener('scroll', updateReelControls, { passive: true });
-    window.addEventListener('resize', updateReelControls, { passive: true });
-    updateReelControls();
   }
+  testimonialTabs.forEach(function (tab, index) {
+    tab.addEventListener('click', function () { activeTestimonial = index; updateTestimonialLayout(); });
+    tab.addEventListener('keydown', function (event) {
+      if (['ArrowLeft', 'ArrowRight', 'Home', 'End'].indexOf(event.key) === -1) return;
+      event.preventDefault();
+      activeTestimonial = event.key === 'Home' ? 0 : event.key === 'End' ? testimonialTabs.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + testimonialTabs.length) % testimonialTabs.length;
+      updateTestimonialLayout();
+      testimonialTabs[activeTestimonial].focus();
+    });
+  });
+  testimonialMobile.addEventListener('change', updateTestimonialLayout);
+  updateTestimonialLayout();
 
   /* ---------------------------------------------------------- FORMULÁRIO --- */
   var tel = document.getElementById('f-tel');
