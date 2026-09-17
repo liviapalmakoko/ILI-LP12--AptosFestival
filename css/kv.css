@@ -1,5 +1,5 @@
-/* Base azul-escura recuperada; Gotham e fotografias do KV mantidas.
-   As cores, superfícies e proporções principais vêm de lp.css. */
+/* Refinamentos do KV: Gotham, fotografias e proporções aprovadas.
+   A base clara e seus contrastes são definidos ao final deste arquivo. */
 .hero__sub,.aptos .lead,.final__text p{font-weight:400}
 .panel__desc .protocol-product--aptos .protocol-product__art img[src*="lltmb"],
 .panel__desc .protocol-product--aptos .protocol-product__art img[src*="llnmb"]{width:120%;height:120%}
@@ -17,7 +17,7 @@
  .technology-card__copy{grid-template-rows:auto auto auto;min-height:220px}
 }
 
-/* Abertura integrada ao fundo escuro, com tipografia do KV. */
+/* Abertura integrada à seção, com tipografia do KV. */
 .explore__intro{max-width:76%}
 .explore__intro .eyebrow{min-height:0;margin-bottom:20px;color:var(--cyan-soft)}
 .explore__intro .display{font-size:clamp(1.8rem,3.2vw,3rem);line-height:1.06;letter-spacing:-.045em;text-transform:uppercase;color:var(--paper);max-width:22ch}
@@ -26,6 +26,55 @@
 .tab__t{font-weight:700;letter-spacing:-.03em}
 @media(max-width:760px){.explore__intro{max-width:100%}.explore__aptos{position:static;width:90px;margin-top:24px}.explore__intro .display{font-size:1.85rem}.explore__intro .eyebrow{font-size:.6rem}}
 
-/* Acentos amostrados dos PDFs de referência; fundos marinho preservados. */
+/* Acentos amostrados dos PDFs de referência. */
 :root{--blue:#3c8cbb;--cyan:#4fc1e9;--pink:#f03a9c;--grad-festival:linear-gradient(110deg,#3c8cbb,#b9287a);--grad-kv:linear-gradient(115deg,#3c8cbb,#4fc1e9 50%,#f03a9c);--grad-text:linear-gradient(96deg,#a9d9ea,#f6b3d5)}
 #gBrasil stop:first-child{stop-color:#3c8cbb}#gBrasil stop:nth-child(2){stop-color:#4fc1e9}#gBrasil stop:last-child{stop-color:#f03a9c}
+
+/* Base clara aprovada — azul luminoso, textura de papel e acentos do KV. */
+:root{
+ --ink:#dceef5;--ink-2:#cce6f1;--ink-3:#bedde9;--paper:#163d54;
+ --fg:#163d54;--fg-1:#244a60;--fg-2:#36596b;--fg-3:#436476;--fg-4:#527082;
+ --on-1:#244a60;--on-2:#36596b;--on-3:#436476;--on-4:#527082;
+ --cyan-soft:#216d91;--pink-soft:#a72269;
+ --line-1:rgba(22,61,84,.09);--line-2:rgba(22,61,84,.18);--line-3:rgba(22,61,84,.26);--line-4:rgba(22,61,84,.4);--line-on:rgba(22,61,84,.18);
+ --glass-1:rgba(255,255,255,.6);--glass-2:rgba(230,244,250,.85);--glass-3:rgba(230,244,250,.94);--glass-4:rgba(230,244,250,.98);
+ --surf-1:rgba(255,255,255,.25);--surf-2:rgba(255,255,255,.4);--surf-3:rgba(255,255,255,.6);
+ --sh-1:0 10px 22px rgba(29,93,121,.12);--sh-2:0 14px 34px -14px rgba(29,93,121,.22);
+ --grad-text:linear-gradient(100deg,#176184,#a72269);
+ --grad-festival:linear-gradient(110deg,#23698e,#a72269);
+}
+/* Grão fino e luz difusa: profundidade sem competir com as fotografias. */
+.grain{opacity:.18;mix-blend-mode:multiply}
+.hero,.aptos,.brasil,.explore,.tech,.depo,.final,.foot{
+ background-color:var(--ink);
+ background-image:radial-gradient(ellipse at 8% 12%,rgba(79,193,233,.23),transparent 56%),radial-gradient(ellipse at 95% 85%,rgba(240,58,156,.075),transparent 52%),linear-gradient(120deg,rgba(255,255,255,.26),transparent 65%);
+}
+.tech,.depo{background-color:#cfe7f1}
+.nav{background:rgba(224,240,247,.92);backdrop-filter:blur(22px);border-bottom:1px solid var(--line-2)}
+.nav__link:hover,.link-inline:hover,.chip:hover,.foot__links a:hover{color:#a72269}
+img[src*="wordmark.svg"],.foot__logos .foot__ilikia{filter:brightness(0) saturate(100%) invert(20%) sepia(22%) saturate(1286%) hue-rotate(158deg) brightness(94%) contrast(94%)}
+.hero__orb,.explore__orb,.depo__orb,.final__orb{filter:brightness(.5) sepia(1) hue-rotate(145deg);opacity:.09}
+.mural::after{background:linear-gradient(90deg,#dceef5 0%,rgba(220,238,245,.96) 22%,rgba(220,238,245,.66) 40%,transparent 65%),linear-gradient(0deg,#dceef5 0%,transparent 33%)}
+.hero__sub strong,.aptos__note strong,.aptos__note .aptos__manifesto strong,.aptos__methods-title,.mapa__facts b,.brasil-story__copy strong,.final__text strong,.tonon__cite,.proof__title{color:var(--paper)}
+.areas{background:rgba(225,241,248,.92);border-top:1px solid var(--line-2)}
+.areas__item.is-lit{color:#163d54;background:rgba(255,255,255,.32)}
+.hero__motion{background:rgba(235,247,252,.88);color:#163d54}
+.aptos::before,.aptos::after,.brasil::before,.tech::before,.final::before,.final::after{opacity:.24}
+.final::before,.final::after{background:none}
+.pillars__media::after{background:linear-gradient(0deg,rgba(37,110,144,.17),transparent 45%)}
+.proof__cell,.tonon,.panel__aside,.technology-card{background:linear-gradient(135deg,rgba(255,255,255,.7),rgba(231,245,250,.52));box-shadow:0 16px 44px -30px rgba(26,82,109,.28)}
+.proof__desc{color:var(--fg-2)}
+.btn--light{background:#fff;color:#163d54;border:1px solid var(--line-2)}
+.secret-tab:hover,.secret-tab.is-active{color:#163d54;background:rgba(255,255,255,.4)}
+.tab{opacity:.75}.tab[aria-selected="true"]{color:#a72269;opacity:1}
+.panel__desc .protocol-product__art{background:#173d54;border-radius:12px}
+.technology-card__copy{border-top:1px solid var(--line-2)}
+.technology-card .mo__brand--amber{color:#82550e}
+.reel{background:radial-gradient(ellipse at 25% 25%,rgba(255,255,255,.7),transparent 60%),linear-gradient(150deg,#b9dce9,#e6e5ed)}
+.reel__hatch{background:repeating-linear-gradient(-45deg,rgba(31,104,140,.035) 0 1px,transparent 1px 10px)}
+.foot::before{opacity:.08}
+:focus-visible{outline:2px solid #a72269;outline-offset:4px}
+@media(max-width:600px){
+ .mural::after{background:linear-gradient(0deg,#dceef5 30%,rgba(220,238,245,.82) 48%,transparent 78%)}
+ .hero__text{max-width:100%}.hero__motion{background:#e8f4f9}
+}
