@@ -19,8 +19,8 @@
 <link rel="preload" href="media/hero-single-v2.png" as="image" fetchpriority="high">
 <link rel="preload" href="media/fonts/GothamBold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="media/fonts/GothamBook.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/lp.css?v=20260916-light1">
-<link rel="stylesheet" href="css/kv.css?v=20260916-light1">
+<link rel="stylesheet" href="css/lp.css?v=20260917-integrated3">
+<link rel="stylesheet" href="css/kv.css?v=20260917-integrated3">
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
@@ -462,7 +462,23 @@
                 <option>Estudante - Especialidades</option>
                 <option>Paciente</option>
                 <option>Outro</option>
-              </select><span class="field__err" id="err-f-espec" role="alert">Selecione sua especialidade ou perfil.</span></div><div class="field"><label for="f-registro">Número de registro</label><input id="f-registro" name="cf_numero_registro" type="text"  placeholder="CRM, CRO, CRF, CRBM…" autocomplete="" aria-describedby="err-f-registro"><span class="field__err" id="err-f-registro" role="alert">Confira o campo número de registro.</span></div></div><div class="field"><label for="f-cidade">Cidade *</label><input id="f-cidade" name="city" type="text" required placeholder="Sua cidade" autocomplete="address-level2" aria-describedby="err-f-cidade"><span class="field__err" id="err-f-cidade" role="alert">Confira o campo cidade.</span></div>
+              </select><span class="field__err" id="err-f-espec" role="alert">Selecione sua especialidade ou perfil.</span></div><div class="field"><label for="f-registro">Número do conselho</label><input id="f-registro" name="cf_numero_do_conselho_regional" type="text"  placeholder="Número do conselho" autocomplete="" aria-describedby="err-f-registro"><span class="field__err" id="err-f-registro" role="alert">Confira o número do conselho.</span></div></div><div class="form__row"><div class="field"><label for="f-cidade">Cidade *</label><input id="f-cidade" name="city" type="text" required placeholder="Sua cidade" autocomplete="address-level2" aria-describedby="err-f-cidade"><span class="field__err" id="err-f-cidade" role="alert">Confira o campo cidade.</span></div><div class="field"><label for="f-estado">Estado *</label><select id="f-estado" name="state" required autocomplete="address-level1" aria-describedby="err-f-estado">
+                <option value="">Selecione</option>
+                <option value="AC">Acre</option><option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option><option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option><option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option><option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option><option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option><option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option><option value="PA">Pará</option>
+                <option value="PB">Paraíba</option><option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option><option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option><option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option><option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option><option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option><option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+              </select><span class="field__err" id="err-f-estado" role="alert">Selecione seu estado.</span></div></div>
 <label class="consent" id="consent"><input type="checkbox" name="consentimento" required aria-describedby="consent-copy"><span id="consent-copy">Autorizo o contato da Ilíkia/APTOS e o tratamento dos meus dados conforme a <a href="https://ilikia.com/politica-de-privacidade/" target="_blank" rel="noopener privacy-policy">Política de Privacidade</a>.</span></label>
 <button class="btn form__submit" type="submit"><span class="btn__bg"></span>Quero receber as informações</button>
 <p id="form-error" class="form__error" role="alert" hidden>Não conseguimos enviar seus dados agora. Tente novamente em alguns instantes.</p>
@@ -526,6 +542,6 @@
 </footer>
 </main>
 
-<script src="js/lp.js?v=20260916-light1"></script>
+<script src="js/lp.js?v=20260917-integrated3"></script>
 </body>
 </html>

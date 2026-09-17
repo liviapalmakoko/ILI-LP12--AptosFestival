@@ -225,7 +225,7 @@
   SECRETS.sort(function(a,b) { return secretOrder.indexOf(a.id) - secretOrder.indexOf(b.id); });
   var protocolVideos = {eyes:'9UXW6M71_a8',body:'P2K4zax1cck',vector:'1rVVNRCxh3E',skin:'ivXdqfB0-6M',nose:'SMhLPf0ymVA'};
   var protocolPhotos = {eyes:'secret-eyes-v5.jpg',nose:'secret-nose-v5.jpg',skin:'secret-skin-v5.jpg',vector:'secret-vector-v5.jpg',body:'secret-body-v4.jpg'};
-  var protocolProducts = {"body": [["stiim", "STIIM", "box-stiim-horizontal-v3.png", 2], ["aptos", "APTOS Nano Excellence", "box-aptos-ne.png", 2]], "skin": [["aptos", "APTOS Nano Excellence", "box-aptos-ne.png", 2]], "eyes": [["aptos", "Light Lift 25", "box-aptos-lltmb.png", 1]], "nose": [["aptos", "Excellence Visage", "box-aptos-ev.png", 1]], "vector": [["aptos", "Excellence Visage", "box-aptos-ev.png", 1], ["aptos", "Light Lift 50", "box-aptos-llnmb.png", 1]]};
+  var protocolProducts = {"body": [["stiim", "STIIM", "box-stiim-v2.png", 2], ["aptos", "APTOS Nano Excellence", "box-aptos-ne.png", 2]], "skin": [["aptos", "APTOS Nano Excellence", "box-aptos-ne.png", 2]], "eyes": [["aptos", "Light Lift 25", "box-aptos-lltmb.png", 1]], "nose": [["aptos", "Excellence Visage", "box-aptos-ev.png", 1]], "vector": [["aptos", "Excellence Visage", "box-aptos-ev.png", 1], ["aptos", "Light Lift 50", "box-aptos-llnmb.png", 1]]};
   var tpl = document.getElementById('panel-tpl');
   var panelsHost = document.getElementById('panels');
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
@@ -260,6 +260,67 @@
         item.appendChild(caption);
         productsHost.appendChild(item);
       });
+      var resultFiles = {nose: 'nose.jpeg', skin: 'skin.png', vector: 'vector.jpeg', body: 'body.png'};
+      var results = node.querySelector('.panel__results');
+      if (resultFiles[s.id]) {
+        results.setAttribute('aria-label', 'Antes e depois do protocolo ' + s.id.toUpperCase());
+        var grid = results.querySelector('.results__grid');
+        grid.className = 'results__gallery results__gallery--' + s.id;
+        grid.replaceChildren();
+        var summary = document.createElement('div');
+        summary.className = 'result-summary';
+        var title = document.createElement('h4');
+        title.textContent = 'Resultado do protocolo ' + s.id.toUpperCase();
+        summary.appendChild(title);
+        var caption = document.createElement('p');
+        caption.textContent = s.id === 'body'
+          ? 'Registro após 30 dias. Caso clínico: 46 anos, histórico de gestação gemelar.'
+          : 'Antes e depois do tratamento.';
+        summary.appendChild(caption);
+        if (s.id === 'skin' || s.id === 'vector') {
+          var credit = document.createElement('p');
+          credit.className = 'result-summary__credit';
+          credit.textContent = 'Registro de imagem: QuantifiCare.';
+          summary.appendChild(credit);
+        }
+        var enlarge = document.createElement('a');
+        enlarge.href = 'media/results/' + resultFiles[s.id];
+        enlarge.target = '_blank';
+        enlarge.rel = 'noopener';
+        enlarge.className = 'result-photo__enlarge';
+        enlarge.textContent = 'Ver registro completo ↗';
+        summary.appendChild(enlarge);
+        grid.appendChild(summary);
+        var pair = document.createElement('div');
+        pair.className = 'result-pair-compact';
+        ['before', 'after'].forEach(function (stage, index) {
+          var figure = document.createElement('figure');
+          figure.className = 'result-frame result-frame--' + s.id;
+          var label = document.createElement('figcaption');
+          label.textContent = index === 0 ? 'Antes' : 'Depois';
+          figure.appendChild(label);
+          var link = document.createElement('a');
+          link.href = enlarge.href;
+          link.target = '_blank';
+          link.rel = 'noopener';
+          link.setAttribute('aria-label', 'Ampliar registro completo de ' + s.id.toUpperCase() + ' (nova aba)');
+          var img = document.createElement('img');
+          img.src = 'media/results/' + s.id + '-' + stage + '.png';
+          img.alt = s.id.toUpperCase() + ' — ' + label.textContent;
+          img.loading = 'lazy';
+          link.appendChild(img);
+          figure.appendChild(link);
+          pair.appendChild(figure);
+        });
+        grid.insertBefore(pair, summary);
+        title.remove();
+        if (s.id !== 'body') caption.remove();
+        var details = node.querySelector('.panel__aside');
+        details.classList.add('panel__aside--with-results');
+        details.insertBefore(results, node.querySelector('[data-panel-list]'));
+      } else {
+        results.remove();
+      }
       panel.setAttribute('aria-labelledby', s.tab);
       node.querySelector('[data-slot-label]').textContent = 'Assistir ao protocolo · ' + s.id.toUpperCase();
       node.querySelector('[data-panel-title]').textContent = s.title;
@@ -485,7 +546,8 @@
         conversion_identifier: 'brazilian-beauty-secrets',
         name: data.get('name'), email: data.get('email'), mobile_phone: data.get('mobile_phone'),
         cf_cpf_cnpj: data.get('cf_cpf_cnpj'), cf_especialidade: data.get('cf_especialidade'),
-        cf_numero_registro: data.get('cf_numero_registro'), city: data.get('city')
+        cf_numero_do_conselho_regional: data.get('cf_numero_do_conselho_regional'),
+        city: data.get('city'), state: data.get('state')
       };
       var query = new URLSearchParams(window.location.search);
       ['utm_source','utm_medium','utm_campaign','utm_term','utm_content'].forEach(function(key) {
