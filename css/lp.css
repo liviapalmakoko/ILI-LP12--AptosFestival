@@ -1204,10 +1204,10 @@ ul,ol{margin:0;padding:0;list-style:none}
 .hero__light--pink{background:linear-gradient(115deg,transparent 59%,rgba(240,58,156,.26) 66%,rgba(185,40,122,.08) 73%,transparent 78%);animation:hero-light-pink 17s ease-in-out infinite alternate}
 .mural__main{animation:hero-camera 18s ease-in-out infinite alternate;transform-origin:75% 35%}
 .hero .grad-text{background-size:220% 100%;animation:hero-type-light 10s ease-in-out infinite alternate}
-.hero__motion{position:absolute;right:var(--pad);bottom:6rem;z-index:5;border:1px solid var(--line-3);border-radius:var(--r-pill);padding:.6rem .9rem;background:rgba(4,8,26,.45);color:var(--fg);font-size:.75rem;cursor:pointer;backdrop-filter:blur(12px)}
-.hero__motion[hidden]{display:none}
+
+
 .hero .scroll-cue{display:none}
-.hero.is-motion-paused .hero__light,.hero.is-motion-paused .mural__main,.hero.is-motion-paused .grad-text{animation-play-state:paused}
+
 @keyframes hero-light-cyan{from{transform:translate3d(-13%,0,0) rotate(-7deg);opacity:.2}to{transform:translate3d(13%,2%,0) rotate(7deg);opacity:.65}}
 @keyframes hero-light-pink{from{transform:translate3d(10%,-3%,0);opacity:.25}to{transform:translate3d(-12%,3%,0);opacity:.6}}
 @keyframes hero-camera{from{transform:scale(1)}to{transform:scale(1.055)}}
@@ -1226,8 +1226,8 @@ ul,ol{margin:0;padding:0;list-style:none}
 .technology-card__image--stiim img{position:relative;z-index:1;width:auto;max-width:65%;height:74%;object-fit:contain;filter:drop-shadow(18px 25px 18px rgba(0,0,0,.5));transform:rotate(-9deg)}
 .stiim-stage{position:absolute;width:72%;height:10%;bottom:8%;border-radius:50%;background:radial-gradient(ellipse,rgba(250,211,110,.3),rgba(79,193,233,.12) 45%,transparent 72%);filter:blur(12px)}
 @media(max-width:1050px){.panel__grid{grid-template-columns:1fr}.protocol__portrait{width:130px;height:155px}}
-@media(max-width:600px){.hero__motion{bottom:4rem;right:var(--pad);font-size:.7rem;padding:.4rem .7rem}.hero__light{filter:blur(24px);opacity:.3}.protocol__portrait{width:100px;height:128px}.slot--video{aspect-ratio:16/9}.panel__aside{padding-top:var(--sp-3)}}
-@media(prefers-reduced-motion:reduce){.hero__light,.mural__main,.hero .grad-text{animation:none!important}.hero__motion{display:none}}
+@media(max-width:600px){.hero__light{filter:blur(24px);opacity:.3}.protocol__portrait{width:100px;height:128px}.slot--video{aspect-ratio:16/9}.panel__aside{padding-top:var(--sp-3)}}
+@media(prefers-reduced-motion:reduce){.hero__light,.mural__main,.hero .grad-text{animation:none!important}}
 
 /* Terceira revisão — foto protagonista e produtos legíveis. */
 .hero__content{max-width:1440px;padding-top:calc(var(--nav-h) + 2rem)}

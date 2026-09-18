@@ -89,18 +89,6 @@
     areaItems.forEach(function (i) { i.classList.add('is-lit'); });
   }
 
-  /* Movimento do hero: pausa explícita e respeito à preferência do dispositivo. */
-  var hero = document.getElementById('hero');
-  var motionButton = document.querySelector('[data-motion-toggle]');
-  if (motionButton) {
-    motionButton.hidden = reduce;
-    motionButton.addEventListener('click', function () {
-      var paused = hero.classList.toggle('is-motion-paused');
-      motionButton.setAttribute('aria-pressed', String(paused));
-      motionButton.textContent = paused ? 'Retomar animação' : 'Pausar animação';
-    });
-  }
-
   /* ----------------------------------------------------------- PARALLAX --- */
   var panels = document.querySelectorAll('.mural__main,.mural__echo');
   var parallaxEls = document.querySelectorAll('[data-parallax]');
@@ -224,7 +212,7 @@
   var secretOrder = ['eyes', 'nose', 'skin', 'vector', 'body'];
   SECRETS.sort(function(a,b) { return secretOrder.indexOf(a.id) - secretOrder.indexOf(b.id); });
   var protocolVideos = {eyes:'9UXW6M71_a8',body:'P2K4zax1cck',vector:'1rVVNRCxh3E',skin:'ivXdqfB0-6M',nose:'SMhLPf0ymVA'};
-  var protocolPhotos = {eyes:'secret-eyes-v5.jpg',nose:'secret-nose-v5.jpg',skin:'secret-skin-v5.jpg',vector:'secret-vector-v5.jpg',body:'secret-body-v4.jpg'};
+  var protocolPhotos = {eyes:'secret-eyes-natural-v7.png',nose:'secret-nose-natural-v7.png',skin:'secret-skin-natural-v7.png',vector:'secret-vector-close-v6.png',body:'secret-body-v4.jpg'};
   var protocolProducts = {"body": [["stiim", "STIIM", "box-stiim-v2.png", 2], ["aptos", "APTOS Nano Excellence", "box-aptos-ne.png", 2]], "skin": [["aptos", "APTOS Nano Excellence", "box-aptos-ne.png", 2]], "eyes": [["aptos", "Light Lift 25", "box-aptos-lltmb.png", 1]], "nose": [["aptos", "Excellence Visage", "box-aptos-ev.png", 1]], "vector": [["aptos", "Excellence Visage", "box-aptos-ev.png", 1], ["aptos", "Light Lift 50", "box-aptos-llnmb.png", 1]]};
   var tpl = document.getElementById('panel-tpl');
   var panelsHost = document.getElementById('panels');

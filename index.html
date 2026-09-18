@@ -19,8 +19,8 @@
 <link rel="preload" href="media/hero-single-v2.png" as="image" fetchpriority="high">
 <link rel="preload" href="media/fonts/GothamBold.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="media/fonts/GothamBook.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/lp.css?v=20260917-testimonials5">
-<link rel="stylesheet" href="css/kv.css?v=20260917-testimonials5">
+<link rel="stylesheet" href="css/lp.css?v=20260918-final18">
+<link rel="stylesheet" href="css/kv.css?v=20260918-final18">
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
@@ -56,7 +56,6 @@
   </div>
   <div class="hero__light hero__light--cyan" aria-hidden="true"></div>
   <div class="hero__light hero__light--pink" aria-hidden="true"></div>
-  <button class="hero__motion" type="button" aria-pressed="false" data-motion-toggle>Pausar animação</button>
   <div class="hero__wash" aria-hidden="true"></div>
   <div class="hero__wash2" aria-hidden="true"></div>
 
@@ -82,13 +81,13 @@
     <span class="scroll-cue__line"></span>
   </div>
 
-  <!-- As cinco áreas -->
-  <ul class="areas" id="areas" aria-label="As cinco áreas dos Brazilian Beauty Secrets">
-    <li class="areas__item"><span class="areas__num">01</span>Olhos</li>
-    <li class="areas__item"><span class="areas__num">02</span>Nariz</li>
-    <li class="areas__item"><span class="areas__num">03</span>Pele do rosto</li>
-    <li class="areas__item"><span class="areas__num">04</span>Contorno facial</li>
-    <li class="areas__item"><span class="areas__num">05</span>Abdômen</li>
+  <!-- Assinaturas oficiais extraídas do KV -->
+  <ul class="areas" id="areas" aria-label="Os cinco Brazilian Beauty Secrets">
+    <li class="areas__item"><img src="media/logos/secret-eyes-kv.svg" alt="The Eyes Secret" width="210" height="22"></li>
+    <li class="areas__item"><img src="media/logos/secret-nose-kv.svg" alt="The Nose Secret" width="210" height="22"></li>
+    <li class="areas__item"><img src="media/logos/secret-skin-kv.svg?v=2" alt="The Skin Secret" width="210" height="22"></li>
+    <li class="areas__item"><img src="media/logos/secret-vector-kv.svg" alt="The Vector Secret" width="210" height="22"></li>
+    <li class="areas__item"><img src="media/logos/secret-body-kv.svg" alt="The Body Secret" width="210" height="22"></li>
   </ul>
 </section>
 
@@ -107,30 +106,15 @@
       </div>
     </div>
 
-    <!-- Dois pilares + foto editorial -->
-    <div class="pillars">
-      <figure class="pillars__media" data-reveal="left" data-parallax="0.07">
-        <img src="media/aptos-model-38-v1.jpg" alt="Retrato editorial de mulher brasileira adulta com expressão natural e confiante" loading="lazy" decoding="async">
-      </figure>
-      <div class="aptos__methods" data-reveal="right">
-        <p class="aptos__methods-title">Lifting de Colágeno e Terapia de Colágeno</p>
-        <div class="pillar">
-          <div class="pillar__top">
-            <span class="pillar__idx">01</span>
-            <h3 class="pillar__name">Lifting de Colágeno</h3>
-          </div>
-          <div class="chips"><span class="chip">Linha Excellence</span><span class="chip">Linha Light Lift</span></div>
-        </div>
-        <div class="pillar">
-          <div class="pillar__top">
-            <span class="pillar__idx">02</span>
-            <h3 class="pillar__name">Terapia de Colágeno</h3>
-          </div>
-          <div class="chips">
-            <span class="chip chip--accent">APTOS NANO EXCELLENCE</span>
-          </div>
-        </div>
-      </div>
+    <div class="collagen-methods" data-reveal="fade">
+      <article class="collagen-method collagen-method--lifting">
+        <header><h3>Lifting de Colágeno</h3></header>
+        <div class="method-products"><figure class="method-product"><img src="media/box-aptos-llnmb.png" alt="Embalagem Light Lift 50" loading="lazy"><figcaption>Light Lift 50</figcaption></figure><figure class="method-product"><img src="media/box-aptos-lltmb.png" alt="Embalagem Light Lift 25" loading="lazy"><figcaption>Light Lift 25</figcaption></figure><figure class="method-product"><img src="media/box-aptos-ev.png" alt="Embalagem Excellence Visage" loading="lazy"><figcaption>Excellence Visage</figcaption></figure><figure class="method-product"><img src="media/box-aptos-evs.png" alt="Embalagem Excellence Visage Soft" loading="lazy"><figcaption>Excellence Visage Soft</figcaption></figure></div>
+      </article>
+      <article class="collagen-method collagen-method--therapy">
+        <header><h3>Terapia de Colágeno</h3></header>
+        <div class="method-products"><figure class="method-product"><img src="media/box-aptos-ne.png" alt="Embalagem Nano Excellence" loading="lazy"><figcaption>Nano Excellence</figcaption></figure></div>
+      </article>
     </div>
 
     <div class="portfolio" data-reveal="fade">
@@ -351,10 +335,10 @@
       </article>
       <article class="technology-card">
         <div class="technology-card__image"><img src="media/secret-skin-v5.jpg" alt="Modelo da campanha Brazilian Beauty Secrets com expressão suave" loading="lazy"></div>
-        <div class="technology-card__copy"><p class="mo__brand">Ciência da Expressão</p><h3>Precisão + Naturalidade</h3><p>Neuromodulador</p></div>
+        <div class="technology-card__copy"><p class="mo__brand">Ciência da Expressão</p><h3>Suavização de linhas expressivas + Precisão</h3><p>Neuromodulador</p></div>
       </article>
       <article class="technology-card">
-        <div class="technology-card__image technology-card__image--lattice"><img src="media/stiim-lattice-campaign-v2.png" alt="Representação ilustrativa de Lattice-Pore STIIM adaptada às cores da campanha" loading="lazy"></div>
+        <div class="technology-card__image technology-card__image--lattice"><img src="media/stiim-gold-campaign-v3.png" alt="Representação ilustrativa de STIIM com estrutura dourada e fundo azul da campanha" loading="lazy"></div>
         <div class="technology-card__copy"><p class="mo__brand mo__brand--amber">STIIM</p><h3>Bioestimulação + Qualidade dos Tecidos</h3><p>3ª geração de Hidroxiapatita de Cálcio</p></div>
       </article>
     </div>
@@ -496,7 +480,7 @@
         <div class="foot__logos">
           <img loading="lazy" decoding="async" src="media/logos/bbs-wordmark.svg" alt="Brazilian Beauty Secrets">
           <img loading="lazy" decoding="async" src="media/logos/aptos-wordmark.svg" alt="APTOS">
-          <span class="foot__ilikia-lockup"><img class="foot__ilikia" loading="lazy" decoding="async" src="media/logos/ilikia-logo.png" alt="Ilíkia"><span class="foot__co">&amp; Co</span></span>
+          <img class="foot__ilikia foot__ilikia--official" loading="lazy" decoding="async" src="media/logos/logo-ilikia.svg" alt="Ilíkia">
         </div>
         <p class="small" style="margin-top:1.75rem;max-width:44ch">Eight worlds, one journey. Trinta anos de APTOS, contados pelas mãos e pela ciência dos especialistas brasileiros.</p>
       </div>
@@ -534,6 +518,6 @@
 </footer>
 </main>
 
-<script src="js/lp.js?v=20260917-testimonials5"></script>
+<script src="js/lp.js?v=20260918-final18"></script>
 </body>
 </html>

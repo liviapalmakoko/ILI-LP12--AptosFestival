@@ -7,7 +7,7 @@
 .explore__orb{width:clamp(260px,30vw,440px);top:25px;right:-9%;opacity:.035;z-index:-1}
 .depo__orb{opacity:.045}
 .final__orb{opacity:.055}
-.hero.is-motion-paused .hero__orb img{animation-play-state:paused}
+
 @media(max-width:600px){
  .hero__orb{display:block;width:350px;top:85px;right:-145px;opacity:.06}
  .explore__orb{width:260px;right:-140px;top:40px}
@@ -56,7 +56,7 @@ img[src*="wordmark.svg"],.foot__logos .foot__ilikia{filter:brightness(0) saturat
 .hero__sub strong,.aptos__note strong,.aptos__note .aptos__manifesto strong,.aptos__methods-title,.mapa__facts b,.brasil-story__copy strong,.final__text strong,.tonon__cite,.proof__title{color:var(--paper)}
 .areas{background:rgba(225,241,248,.92);border-top:1px solid var(--line-2)}
 .areas__item.is-lit{color:#163d54;background:rgba(255,255,255,.32)}
-.hero__motion{background:rgba(235,247,252,.88);color:#163d54}
+
 .aptos::before,.aptos::after,.brasil::before,.tech::before,.final::before,.final::after{opacity:.24}
 .final::before,.final::after{background:none}
 .pillars__media::after{background:linear-gradient(0deg,rgba(37,110,144,.17),transparent 45%)}
@@ -74,7 +74,7 @@ img[src*="wordmark.svg"],.foot__logos .foot__ilikia{filter:brightness(0) saturat
 :focus-visible{outline:2px solid #a72269;outline-offset:4px}
 @media(max-width:600px){
  .mural::after{background:linear-gradient(0deg,#dceef5 30%,rgba(220,238,245,.82) 48%,transparent 78%)}
- .hero__text{max-width:100%}.hero__motion{background:#e8f4f9}
+ .hero__text{max-width:100%}
 }
 
 /* Embalagens originais: enquadramento completo, sem ampliar nem distorcer. */
@@ -151,7 +151,7 @@ section[id],footer[id]{scroll-margin-top:88px}
  .mural::after{background:linear-gradient(0deg,#dceef5 calc(100% - 440px),rgba(220,238,245,.85) calc(100% - 340px),transparent calc(100% - 180px))}
  .hero__logo{width:140px;margin-bottom:20px}
  .hero__eyebrow{font-size:.6rem;line-height:1.6}
- .hero__motion{top:80px;bottom:auto;right:var(--pad)}
+
  .scroll-cue{display:none}
  .pillars__media{margin-inline:auto}
 }
@@ -218,3 +218,70 @@ section[id],footer[id]{scroll-margin-top:88px}
 .testimonial-play strong{font-size:.8rem;font-weight:500}
 .testimonial-play:hover span{background:rgba(185,40,122,.8)}
 .testimonial-play:focus-visible{outline:3px solid #B9287A;outline-offset:-4px}
+
+/* Revisão do cliente: assinaturas do KV, portfólio e enquadramentos por área. */
+.areas__item img{display:block;width:min(100%,190px);height:26px;object-fit:contain}
+.collagen-methods{display:grid;grid-template-columns:minmax(0,4fr) minmax(210px,1.15fr);gap:24px;margin:64px 0 32px}
+.collagen-method{padding:28px 20px;border-radius:18px;border:1px solid rgba(60,140,187,.24);background:linear-gradient(145deg,rgba(255,255,255,.55),rgba(79,193,233,.16))}
+.collagen-method--therapy{border-color:rgba(185,40,122,.2);background:linear-gradient(145deg,rgba(255,255,255,.55),rgba(240,58,156,.1))}
+.collagen-method header{display:flex;align-items:baseline;gap:12px}.collagen-method h3{font-size:clamp(1.1rem,2vw,1.65rem);line-height:1.2}
+.collagen-method>p{font-size:.8rem;color:var(--fg-2);margin:12px 0 26px}
+.method-products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.collagen-method--therapy .method-products{grid-template-columns:1fr}
+.method-product{margin:0;min-width:0;text-align:center}
+.method-product img{width:100%;height:135px;object-fit:contain;display:block}
+.method-product figcaption{font-size:.72rem;line-height:1.5;margin-top:18px;font-weight:500}
+#p-eyes .protocol__portrait{transform:scale(4);transform-origin:55% 29%}
+#p-nose .protocol__portrait{transform:scale(3.7);transform-origin:68% 34%}
+#p-skin .protocol__portrait{transform:scale(2.8);transform-origin:50% 44%}
+#p-vector .protocol__portrait{transform:scale(3);transform-origin:54% 53%}
+.technology-card__image--lattice{background:#061344}
+.technology-card__image--lattice img{object-fit:cover;transform:none!important}
+.foot__logos .foot__ilikia--official{width:145px;height:auto;filter:none}
+@media(max-width:900px){.collagen-methods{grid-template-columns:1fr}.collagen-method--therapy .method-products{max-width:200px;margin:auto}.method-product img{height:125px}}
+@media(max-width:600px){.areas__item{padding:14px 6px}.areas__item img{height:16px}.collagen-methods{margin-top:36px;gap:16px}.collagen-method{padding:24px 16px}.method-products{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 12px}.method-product img{height:105px}.foot__logos .foot__ilikia--official{width:110px;height:auto}}
+
+@media(max-width:600px){#p-eyes .protocol__portrait{transform:scale(5);transform-origin:50% 30%}#p-nose .protocol__portrait{transform:scale(4.2);transform-origin:61% 34%}#p-skin .protocol__portrait{transform:scale(3);transform-origin:48% 44%}#p-vector .protocol__portrait{transform:scale(3.4);transform-origin:52% 52%}}
+
+@media(min-width:901px){.collagen-method header{min-height:64px}}
+@media(max-width:600px){
+.areas{flex-wrap:wrap;justify-content:center;padding:8px 12px;gap:0}
+.areas__item{flex:0 0 33.333%;padding:10px 8px;border:0}
+.areas__item img{width:100%;height:18px}
+.hero__content{padding-bottom:126px}
+}
+
+/* Portfólio com cinco cartões, seguindo a referência do cliente. */
+.collagen-methods{grid-template-columns:minmax(0,4fr) minmax(0,1fr);gap:14px}
+.collagen-method{padding:0;border:0;border-radius:0;background:none;min-width:0}
+.collagen-method header{display:flex;justify-content:center;align-items:center;min-height:58px;margin-bottom:12px;text-align:center}
+.collagen-method h3{font-size:clamp(.9rem,1.5vw,1.3rem);font-weight:400;text-transform:uppercase;line-height:1.25;color:#226b94}
+.collagen-method--therapy h3{color:#b9287a}
+.method-products{gap:14px}
+.collagen-method--therapy .method-products{max-width:none;margin:0}
+.method-product{display:flex;flex-direction:column;justify-content:center;aspect-ratio:2/3;border-radius:12px;padding:22px 8px;overflow:hidden;border:1px solid rgba(25,90,135,.18);background:radial-gradient(ellipse at 70% 25%,#4fc1e9,transparent 75%),linear-gradient(145deg,#007bba,#159ed1);box-shadow:0 4px 14px rgba(30,102,144,.08)}
+.collagen-method--therapy .method-product{background:radial-gradient(ellipse at 70% 25%,#fa91bb,transparent 75%),linear-gradient(145deg,#d3408a,#ed70a6);border-color:rgba(185,40,122,.2)}
+.method-product img{width:125%;max-width:none;height:65%;margin-left:-12.5%;object-fit:contain;flex:none}
+.method-product figcaption{margin:18px 0 0;color:#fff;font-size:clamp(.85rem,1.3vw,1.1rem);font-weight:400;line-height:1.3;min-height:2.6em;display:flex;align-items:center;justify-content:center}
+@media(max-width:900px){.collagen-methods{grid-template-columns:minmax(0,4fr) minmax(0,1fr);gap:10px}.method-products{gap:10px}.collagen-method h3{font-size:.9rem}.method-product{padding:14px 5px}.method-product figcaption{font-size:.7rem;margin-top:10px}}
+@media(max-width:600px){.collagen-methods{grid-template-columns:1fr;gap:24px}.collagen-method header{min-height:0;margin-bottom:16px}.collagen-method h3{font-size:1rem}.method-products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.method-product{padding:16px 6px}.method-product figcaption{font-size:.9rem}.collagen-method--therapy{width:calc((100% - 12px)/2);justify-self:center}.collagen-method--therapy header{min-height:40px}.collagen-method--therapy .method-products{grid-template-columns:1fr}}
+
+@media(min-width:901px){.collagen-methods{grid-template-columns:minmax(0,calc(80% - 2.8px)) minmax(0,1fr)}}
+@media(min-width:601px) and (max-width:900px){.collagen-methods{grid-template-columns:minmax(0,calc(80% - 2px)) minmax(0,1fr)}}
+.collagen-method--therapy .method-product img{transform:scale(1.28)}
+
+/* Aproximação do enquadramento do VA: caixas ampliadas e corte à esquerda. */
+.collagen-method--therapy header{justify-content:flex-end}
+.collagen-method--therapy h3{white-space:nowrap;flex-shrink:0}
+.method-product img{transform:translateX(-17%) scale(1.65);transform-origin:center}
+.collagen-method--therapy .method-product img{transform:translateX(-17%) scale(2.1)}
+@media(max-width:600px){.collagen-method--therapy header{justify-content:center}}
+
+/* Closes produzidos no enquadramento final, sem ampliação excessiva. */
+#p-eyes .protocol__portrait,#p-nose .protocol__portrait,#p-skin .protocol__portrait,#p-vector .protocol__portrait{transform:none;object-position:center}
+#p-eyes .protocol__portrait{transform:scale(1.25);transform-origin:50% 75%}
+@media(max-width:600px){#p-eyes .protocol__portrait{transform:none;object-position:50% 73%}#p-nose .protocol__portrait{object-position:50% 48%}#p-skin .protocol__portrait{object-position:50% 48%}#p-vector .protocol__portrait{object-position:50% 35%}}
+
+/* EYES: um olho em destaque, mantendo as dimensões dos demais protocolos. */
+#p-eyes .protocol__portrait{transform:scale(2);transform-origin:98% 82%;object-position:center}
+@media(max-width:600px){#p-eyes .protocol__portrait{transform:scale(2);transform-origin:98% 60%;object-position:50% 82%}}
